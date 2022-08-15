@@ -10,6 +10,8 @@ package tasks.task3;
  * }
  */
 public final class Algorithm {
+
+    //bigger or smaller operator is not applicable for objects that's why getting compilation error
     public static <T> T max(T x, T y) {
         return (Character) x > (Character) y ? x : y;
     }
