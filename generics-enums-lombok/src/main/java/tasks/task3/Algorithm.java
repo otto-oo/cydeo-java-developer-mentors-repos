@@ -1,5 +1,14 @@
 package tasks.task3;
 
+
+/**
+ * Will the following class compile? If not, why?
+ * public final class Algorithm {
+ * public static <T> T max(T x, T y) {
+ * return x > y ? x : y;
+ * }
+ * }
+ */
 public final class Algorithm {
     public static <T> T max(T x, T y) {
         return (Character) x > (Character) y ? x : y;
