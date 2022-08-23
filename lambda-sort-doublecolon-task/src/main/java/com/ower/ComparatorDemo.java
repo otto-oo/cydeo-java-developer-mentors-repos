@@ -37,10 +37,14 @@ public class ComparatorDemo {
         Collections.sort(cars, comparator);
         System.out.println(cars);
 
-        System.out.println("-------------------------- below compare according to year --------------------");
+        System.out.println("-------------------------- with comparator.comparing --------------------");
         Collections.sort(cars, Comparator.comparing(Car::getYear));
 
-
+        System.out.println("-------------------------- with streams sorted method --------------------");
+        cars.stream()
+                .sorted(Comparator.comparing(Car::getYear))
+                .map(Car::getModel)
+                .forEach(System.out::println);
 
 
     }
