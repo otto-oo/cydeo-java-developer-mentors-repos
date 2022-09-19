@@ -105,26 +105,5 @@ public class ValidPalindrome {
         return new StringBuilder(str).reverse().toString().equals(str);
     }
 
-    // dilara
-    public static boolean dilara(String str) {
-        str = str.toLowerCase();
-        //  str= str.replaceAll("[^a-z]","");
-        //   str= str.replaceAll(" ","");
-        str = str.replaceAll("[^a-z0-9]", "");
-        System.out.println(str);
-        System.out.println(str.length());
-        int left = 0;
-        int right = str.length() - 1;
-
-        while (left < right) {
-            if (str.charAt(left) != str.charAt(right)) {
-                return false;
-            } else {
-                left++;
-                right--;
-            }
-        }
-        return true;
-    }
 }
 

@@ -37,13 +37,13 @@ public class RemoveDuplicatesFromLinkedList_LeetCode {
                 new ListNode(3, new ListNode(3, new ListNode(4, new ListNode(4)))))));
 
         printList(head1);
-        printList(dilara(head1));
+        printList(deleteDuplicates(head1));
 
         printList(head2);
-        printList(dilara(head2));
+        printList(deleteDuplicates(head2));
 
         printList(head3);
-        printList(dilara(head3));
+        printList(deleteDuplicates(head3));
     }
 
     // my solution
@@ -58,20 +58,6 @@ public class RemoveDuplicatesFromLinkedList_LeetCode {
             } else {
                 slow = fast;
                 fast = fast.next;
-            }
-        }
-        return head;
-    }
-
-    // dilara
-    public static ListNode dilara(ListNode head) {
-        if (head == null) return head;
-        ListNode current = head;
-        while (current != null && current.next != null) {
-            if (current.val == current.next.val) {
-                current.next = current.next.next;
-            } else {
-                current = current.next;
             }
         }
         return head;
