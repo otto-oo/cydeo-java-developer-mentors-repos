@@ -18,7 +18,7 @@ public class MoveZerosToEnd {
     public static void main(String[] args) {
         int[] arr = {0, 1, 0, 2, 0, 3, 7};
        // moveZerosToEnd(arr);
-        moveZerosToEnd(arr);
+        dilara(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -51,4 +51,25 @@ public class MoveZerosToEnd {
         }
     }
 
+    // dilara
+    public static int[] dilara(int[] nums) {
+        int slow = 0;   // pointer1
+        int fast = 1;   // pointer2
+        while (slow < fast && fast < nums.length) {
+            if (nums[slow] != 0) {
+                slow++;
+                fast++;
+            } else {  // pointer1==0 then check pointer2 value
+                if (nums[fast] == 0) {
+                    fast++;
+                } else { // swap pointer1 value with  pointer2 value
+                    nums[slow] = nums[fast];
+                    nums[fast] = 0;
+                    slow++;
+                    fast++;
+                }
+            }
+        }
+        return nums;
+    }
 }

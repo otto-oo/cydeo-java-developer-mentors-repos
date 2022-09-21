@@ -8,17 +8,18 @@ public class ValidPalindrome {
     (A string is said to be palindrome after converting all uppercase letters into lowercase letters and removing all non-alphanumeric it reads the same backward as forward. )
 
     Examples:
-    Input: Do geese see God? Output: True
+    Input: Do geese see God?            Output: True
     Input: Was it a car or a cat I saw? Output: True
-    Input: A brown fox jumping over Output: False
+    Input: A brown fox jumping over     Output: False
      */
 
     public static void main(String[] args) {
-        System.out.println(stringAndForLoop("Do geese see God?"));
-        System.out.println(stringAndForLoop("Was it a car or a cat I saw?"));
-        System.out.println(stringAndForLoop("A man, a plan, a canal: Panama"));
-        System.out.println(stringAndForLoop("A brown fox jumping over"));
-        System.out.println(stringAndForLoop(""));
+        System.out.println(stringAndForLoop("Do geese see God?"));      // true
+        System.out.println(stringAndForLoop("Was it a car or a cat I saw?"));   // true
+        System.out.println(stringAndForLoop("A man, a plan, a canal: Panama")); // true
+        System.out.println(stringAndForLoop("A brown fox jumping over"));   // false
+        System.out.println(stringAndForLoop(""));   // true
+        System.out.println(stringAndForLoop("   "));   // true
         System.out.println(stringAndForLoop(null));
     }
 
@@ -28,15 +29,15 @@ public class ValidPalindrome {
         if (str == null || str.isBlank()) {
             return true;
         }
-        str = str.toLowerCase();
+        str = str.toLowerCase();                // O(n)
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {    // O(n)
             if (Character.isLetterOrDigit(str.charAt(i))) {
                 sb.append(str.charAt(i));
             }
         }
         int left = 0, right = sb.length() - 1;
-        while (left < right) {
+        while (left < right) {                          // O(n)
             if (sb.charAt(left) == sb.charAt(right)) {
                 left++;
                 right--;
@@ -64,23 +65,27 @@ public class ValidPalindrome {
         return true;
     }
 
+    // brute force
+    // O (n)
     public static boolean stringAndForLoop(String str) {
         if (str == null || str.isBlank()) {
             return true;
         }
-        str = str.toLowerCase();
+        str = str.toLowerCase();        // O (n)
         String filtered = "";
-        for (int i = 0; i < str.length(); i++) {
+        String reverseStr = "";
+        for (int i = 0; i < str.length(); i++) {    // O (n)
             char ch = str.charAt(i);
             if ( (ch >='a' && ch <= 'z') || (ch >='0' && ch <= '9')){
                 filtered = filtered + ch;
+                reverseStr = ch + reverseStr;
             }
         }
-        String reverseStr = "";
-        for (int i = filtered.length() - 1; i >= 0; i--) {
-            reverseStr += "" + filtered.charAt(i);
-        }
-        return reverseStr.equals(filtered);
+
+//        for (int i = filtered.length() - 1; i >= 0; i--) {
+//            reverseStr += "" + filtered.charAt(i);
+//        }
+        return reverseStr.equals(filtered); // O (n)
     }
 
     public static boolean twoPointerRegexForLoop(String str) {

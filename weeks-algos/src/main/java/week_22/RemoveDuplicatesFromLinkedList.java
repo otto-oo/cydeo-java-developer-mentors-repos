@@ -29,27 +29,30 @@ public class RemoveDuplicatesFromLinkedList {
         list.add(6);
         list.add(7);
 
-        list.printList();
-        deleteDuplicates(list.head);
-        list.printList();
+//        list.printList();
+//        deleteDuplicates(list.head);
+//        list.printList();
 
+        list.printList();
+        list.deleteDuplicates();
+        list.printList();
     }
 
-
-    public static void deleteDuplicates(MyLinkedList.ListNode head) {
-        if (head == null || head.next == null) return;
-        MyLinkedList.ListNode slow = head;
-        MyLinkedList.ListNode fast = head.next;
-        while (fast != null) {
-            if (slow.val == fast.val) {
-                fast = fast.next;
-                slow.next = fast;
-            } else {
-                slow = fast;
-                fast = fast.next;
-            }
-        }
-    }
+    // O (n)
+//    public static void deleteDuplicates(MyLinkedList.ListNode head) {
+//        if (head == null || head.next == null) return;
+//        MyLinkedList.ListNode slow = head;
+//        MyLinkedList.ListNode fast = head.next;
+//        while (fast != null) {
+//            if (slow.val == fast.val) {
+//                fast = fast.next;
+//                slow.next = fast;
+//            } else {
+//                slow = fast;
+//                fast = fast.next;
+//            }
+//        }
+//    }
 
 
 
