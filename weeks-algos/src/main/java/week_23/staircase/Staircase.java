@@ -1,4 +1,4 @@
-package week_23;
+package week_23.staircase;
 
 
 import java.util.HashMap;
@@ -9,6 +9,27 @@ public class Staircase {
     public static void main(String[] args) {
         System.out.println(getNumberOfStepsWithMap(20));
         System.out.println(getNumberOfSteps(5));
+        System.out.println(stepPerms(5));
+
+    }
+
+    static HashMap<Integer, Integer> stairWayPair = new HashMap<>();
+
+    static {
+        stairWayPair.put(1, 1);
+        stairWayPair.put(2, 2);
+        stairWayPair.put(3, 4);
+    }
+
+    public static int stepPerms(int n) {
+        if (n == 0)
+            return 0;
+        if (stairWayPair.containsKey(n))
+            return stairWayPair.get(n);
+
+        int wayCount = stepPerms(n - 1) + stepPerms(n - 2) + stepPerms(n - 3);
+        stairWayPair.put(n, wayCount);
+        return wayCount;
     }
 
     /**
