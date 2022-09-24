@@ -59,6 +59,8 @@ public class Staircase {
 
     }
 
+    //this is not a proper way, because the map is created again and again in every method call (recursively). The first hash map solution
+    //is great. Because that is just created beginning.
     public static int getNumberOfStepsWithMap(int n) {
         Map<Integer, Integer> map = new HashMap<>();
 
