@@ -36,7 +36,7 @@ public class UserController {
         return "/user/create-page";
     }
 
-    @PostMapping("create")
+    @PostMapping("/create")
     public String createUser(@ModelAttribute  User user) {
         userService.save(user);
 
