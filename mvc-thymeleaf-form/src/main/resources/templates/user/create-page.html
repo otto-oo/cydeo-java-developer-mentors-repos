@@ -33,48 +33,66 @@
 <div class="mystyle">
 
     <form th:action="@{/user/create}" method="post" th:object="${user}" class="row g-3">
-        <div class="col-md-4">
-            <label for="validationDefault01" class="form-label">First name</label>
-            <input type="text" class="form-control" id="validationDefault01" th:field="*{firstName}" required>
-        </div>
-        <div class="col-md-4">
-            <label for="validationDefault02" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="validationDefault02" th:field="*{lastName}" required>
-        </div>
-        <div class="col-md-4">
-            <label for="validationDefaultUsername" class="form-label">Age</label>
-            <div class="input-group">
-                <input type="number" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" th:field="*{age}" required>
+        <div class="col-8">
+            <div class="row" style="margin-top: 1em">
+
+                <div class="col-md-3">
+                    <label for="validationDefault01" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="validationDefault01" th:field="*{firstName}" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationDefault02" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="validationDefault02" th:field="*{lastName}" required>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1em">
+                <div class="col-md-6">
+                    <label for="validationDefault05" class="form-label">Address</label>
+                    <textarea type="text" class="form-control" id="validationDefault05" th:field="*{address}"
+                              required></textarea>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1em">
+                <div class="col-md-3">
+                    <label for="validationDefault04" class="form-label">State</label>
+                    <select class="form-select" id="validationDefault04" th:field="*{state}" required>
+                        <option th:each="theState:${states}" th:value="${theState}" th:text="${theState}"></option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="validationDefaultUsername" class="form-label">Age</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="validationDefaultUsername"
+                               aria-describedby="inputGroupPrepend2" th:field="*{age}" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 1em">
+                <div class="col-md-3">
+                    <label class="form-label">Gender</label>
+                    <br>
+                    <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked"
+                           value="FEMALE" th:field="*{gender}" required>
+                    <label class="form-check-label" for="validationFormCheck2">Female</label>
+                    <br>
+                    <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked"
+                           value="MALE" th:field="*{gender}" required>
+                    <label class="form-check-label" for="validationFormCheck3">Male</label>
+                </div>
+                <div class="col-md-2">
+                    <label for="validationDefault06" class="form-label">Married</label>
+                    <br>
+                    <input type="checkbox" class="form-check-input" id="validationDefault06" th:field="*{married}">
+                </div>
+
+            </div>
+
+            <div class="col-12" style="margin-top: 2em">
+                <button class="btn btn-primary" type="submit">Submit form</button>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <label for="validationDefault05" class="form-label">Address</label>
-            <textarea type="text" class="form-control" id="validationDefault05" th:field="*{address}" required></textarea>
-        </div>
-        <div class="col-md-3">
-            <label for="validationDefault04" class="form-label">State</label>
-            <select class="form-select" id="validationDefault04" th:field="*{state}" required>
-                <option th:each="theState:${states}" th:value="${theState}" th:text="${theState}"></option>
-            </select>
-        </div>
-
-        <div class="col-md-3">
-            <label class="form-label">Gender</label>
-            <br>
-            <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" value="FEMALE" th:field="*{gender}" required>
-            <label class="form-check-label" for="validationFormCheck2">Female</label>
-            <br>
-            <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" value="MALE" th:field="*{gender}" required>
-            <label class="form-check-label" for="validationFormCheck3">Male</label>
-        </div>
-        <div class="col-md-3">
-            <label class="form-label">Married</label>
-            <input type="checkbox" class="form-check-input" th:field="*{married}">
-        </div>
-        <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit form</button>
-        </div>
     </form>
 </div>
 
