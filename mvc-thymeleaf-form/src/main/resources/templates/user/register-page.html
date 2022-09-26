@@ -62,13 +62,13 @@
         </thead>
         <tbody>
         <tr th:each="user,userStat:${users}"
-        th:style="${userStat.index>9} ? 'color:red'">
+            th:style="${userStat.index>9} ? 'color:red'">
             <td th:text="${user.firstName}"></td>
             <td th:text="${user.lastName}"></td>
             <td th:text="${user.age}"></td>
             <td th:text="${user.gender}"></td>
             <td th:text="${user.address}"></td>
-            <td th:text="${user.state}"></td>
+            <td th:text="${user.state.name +', '+ user.state.abbreviation}"></td>
             <td th:if="${user.married}">Yes</td>
             <td th:unless="${user.married}">No</td>
 
