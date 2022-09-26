@@ -37,17 +37,17 @@ public class RemoveDuplicatesFromLinkedList_LeetCode {
                 new ListNode(3, new ListNode(3, new ListNode(4, new ListNode(4)))))));
 
         printList(head1);
-        printList(deleteDuplicates(head1));
+        printList(twoPointer(head1));
 
         printList(head2);
-        printList(deleteDuplicates(head2));
+        printList(twoPointer(head2));
 
         printList(head3);
-        printList(deleteDuplicates(head3));
+        printList(twoPointer(head3));
     }
 
-    // my solution
-    public static ListNode deleteDuplicates(ListNode head) {
+    // time complexity : O(n)
+    public static ListNode twoPointer(ListNode head) {
         if (head == null || head.next == null) return head;
         ListNode slow = head;
         ListNode fast = head.next;

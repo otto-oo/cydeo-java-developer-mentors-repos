@@ -1,6 +1,7 @@
 package week_22;
 
 public class MyLinkedList {
+
     static class ListNode {
         int val;
         ListNode next;
@@ -27,10 +28,30 @@ public class MyLinkedList {
         return head;
     }
 
+    // O (n)
+    public ListNode deleteDuplicates() {
+        if (head == null || head.next == null) return head;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null) {
+            if (slow.val == fast.val) {
+                fast = fast.next;
+                slow.next = fast;
+            } else {
+                slow = fast;
+                fast = fast.next;
+            }
+        }
+        return head;
+    }
+
     public void printList() {
         ListNode current = head;
         while (current != null) {
-            System.out.print(current.val + " => ");
+            if (current.next != null){
+                System.out.print(current.val + " => ");
+            } else
+                System.out.print(current.val);
             current = current.next;
         }
         System.out.println();

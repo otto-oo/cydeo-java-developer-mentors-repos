@@ -1,0 +1,92 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="#{title.create}"></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        .mystyle {
+            padding-top: 80px;
+            padding-right: 30px;
+            padding-bottom: 50px;
+            padding-left: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">CREATE A NEW USER</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+                aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+             aria-labelledby="offcanvasDarkNavbarLabel">
+        </div>
+    </div>
+</nav>
+
+<div class="mystyle">
+
+    <form th:action="@{/user/create}" method="post" th:object="${user}" class="row g-3">
+        <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">First name</label>
+            <input type="text" class="form-control" id="validationDefault01" th:field="*{firstName}" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault02" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="validationDefault02" th:field="*{lastName}" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefaultUsername" class="form-label">Age</label>
+            <div class="input-group">
+                <input type="number" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" th:field="*{age}" required>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="validationDefault05" class="form-label">Address</label>
+            <textarea type="text" class="form-control" id="validationDefault05" th:field="*{address}" required></textarea>
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault04" class="form-label">State</label>
+            <select class="form-select" id="validationDefault04" th:field="*{state}" required>
+                <option th:each="theState:${states}" th:value="${theState}" th:text="${theState}"></option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label">Gender</label>
+            <br>
+            <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" value="FEMALE" th:field="*{gender}" required>
+            <label class="form-check-label" for="validationFormCheck2">Female</label>
+            <br>
+            <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" value="MALE" th:field="*{gender}" required>
+            <label class="form-check-label" for="validationFormCheck3">Male</label>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Married</label>
+            <input type="checkbox" class="form-check-input" th:field="*{married}">
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+    </form>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
