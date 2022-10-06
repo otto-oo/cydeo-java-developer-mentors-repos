@@ -1,5 +1,7 @@
 package week_24;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class FindGreaterThanRight {
@@ -8,6 +10,8 @@ public class FindGreaterThanRight {
     {
         int[] arr = { 10, 4, 6, 3, 5 };
         find(arr);
+
+        System.out.println(findAllElementGreaterThanTheirRight(new int[]{10, 4, 6, 3, 5, 9, 7, 4, 8, 12}));
     }
 
     // Function to print all elements which are greater than all elements present to their right
@@ -28,6 +32,21 @@ public class FindGreaterThanRight {
         while (!stack.isEmpty()) { // print all elements in the stack
             System.out.print(stack.pop() + " ");
         }
+    }
+
+
+    public static List<Integer> findAllElementGreaterThanTheirRight(int[] arr) {
+
+        Stack<Integer> stack = new Stack<>();
+
+        for (int num : arr) {
+            while (!stack.isEmpty() && num > stack.peek()) {
+                stack.pop();
+            }
+            stack.push(num);
+        }
+
+        return new ArrayList<>(stack);
     }
 }
 
