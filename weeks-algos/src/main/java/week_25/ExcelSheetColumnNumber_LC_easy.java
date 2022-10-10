@@ -61,13 +61,9 @@ leetcode link : https://leetcode.com/problems/excel-sheet-column-number/
     }
 
     public static int withRecursion(String title) {
-        return title.length() == 0 ? 0 : (title.charAt(title.length() - 1) - 'A' + 1) + 26 * withRecursion(title.substring(0, title.length() - 1));
-    }
-
-    public static int withRecursion2(String title) {
         if (title.length() == 0) return 0;
         return (title.charAt(title.length() - 1) - 'A' + 1)
-                + 26 * withRecursion2(title.substring(0, title.length() - 1));
+                + 26 * withRecursion(title.substring(0, title.length() - 1));
     }
 
 //    For every additional digit of the string, we multiply the value of the digit by 26^n where n is the number of digits it is away from the one's place. This is similar to how the number 254 could be broken down as this: (2 x 10 x 10) + (5 x 10) + (4). The reason we use 26 instead of 10 is because 26 is our base.
@@ -77,17 +73,6 @@ leetcode link : https://leetcode.com/problems/excel-sheet-column-number/
 //            "B" = 2
 //            "BC" = (2)26 + 3
 //            "BCM" = (2(26) + 3)26 + 13
-//
-//            if you expand this expression you will see it is identical to the example above :).
-
-    public static int forLoopFromBeginning2(String title) {
-        int count = 0;
-        for (char c : title.toCharArray()) {
-            count *= 26;
-            count += c - 'A' + 1;
-        }
-        return count;
-    }
 
     public static int forLoopFromBeginning(String title) {
         int result = 0;
