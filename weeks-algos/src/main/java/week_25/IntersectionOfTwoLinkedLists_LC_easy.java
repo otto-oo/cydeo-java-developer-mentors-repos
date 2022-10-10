@@ -75,21 +75,21 @@ leetcode link : https://leetcode.com/problems/intersection-of-two-linked-lists/
     }
 
     public ListNode withSetTwoLoop(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) return null;
         Set<ListNode> set = new HashSet<>();
-        ListNode ptr1 = headA;
-        ListNode ptr2 = headB;
+        ListNode currentA = headA;
+        ListNode currentB = headB;
 
-        while(ptr1!=null){
-            set.add(ptr1);
-            ptr1=ptr1.next;
+        while (currentA != null) {
+            set.add(currentA);
+            currentA = currentA.next;
         }
-        while(ptr2!=null){
-            if(set.contains(ptr2)) return ptr2;
-            ptr2=ptr2.next;
+        while (currentB != null) {
+            if (set.contains(currentB)) return currentB;
+            currentB = currentB.next;
         }
 
         return null;
-
     }
 
     public ListNode withSetOneLoop(ListNode headA, ListNode headB) {
@@ -126,44 +126,39 @@ If we will start from Node 3 in LL B then after equal no. of passes we will reac
      */
 
     public ListNode withFindingLength(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) return null;
 
-        int sizeA = length(headA);
-        int sizeB = length(headB);
+        int sizeA = length(headA), sizeB = length(headB);
+        ListNode currentA = headA, currentB = headB;
 
         if (sizeA > sizeB) {
             int diff = sizeA - sizeB;
-
             for (int i = 1; i <= diff; i++) {
-                headA = headA.next;
+                currentA = currentA.next;
             }
-
         } else {
-
             int diff = sizeB - sizeA;
             for (int i = 1; i <= diff; i++) {
-                headB = headB.next;
+                currentB = currentB.next;
             }
         }
-        return common(headA, headB);
+
+        while (currentA != null && currentB != null) {
+            if (currentA == currentB) return currentA;
+            currentA = currentA.next;
+            currentB = currentB.next;
+        }
+        return null;
     }
 
     public int length(ListNode head) {
         ListNode temp = head;
-        int count = 0;
+        int size = 0;
         while (temp != null) {
             temp = temp.next;
-            count++;
+            size++;
         }
-        return count;
-    }
-
-    public ListNode common(ListNode head1, ListNode head2) {
-        ListNode a = head1, b = head2;
-        while (a != b) {
-            a = a.next;
-            b = b.next;
-        }
-        return a;
+        return size;
     }
 
 

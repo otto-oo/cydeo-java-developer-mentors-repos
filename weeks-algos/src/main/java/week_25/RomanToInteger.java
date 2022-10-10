@@ -67,15 +67,8 @@ Constraints:
     }
 
     static int withMap(String s) {
+        if (s == null || s.isBlank()) return -1;
         Map<Character, Integer> map = Map.of('I', 1, 'V', 5, 'X', 10, 'L', 50, 'C', 100, 'D', 500, 'M', 1000);
-//        Map<Character, Integer> map = new HashMap<>();
-//        map.put('I', 1);
-//        map.put('V', 5);
-//        map.put('X', 10);
-//        map.put('L', 50);
-//        map.put('C', 100);
-//        map.put('D', 500);
-//        map.put('M', 1000);
         int prev = 0;
         int total =0;
         for (int i = s.length()-1; i >= 0; i--) {
@@ -91,7 +84,8 @@ Constraints:
     }
 
     public static int withSwitchCase(String s) {
-        int ans = 0, num = 0;
+        if (s == null || s.isBlank()) return -1;
+        int total = 0, num = 0;
         for (int i = s.length()-1; i >= 0; i--) {
             switch(s.charAt(i)) {
                 case 'I': num = 1; break;
@@ -102,9 +96,9 @@ Constraints:
                 case 'D': num = 500; break;
                 case 'M': num = 1000; break;
             }
-            if (4 * num < ans) ans -= num;
-            else ans += num;
+            if (4 * num < total) total -= num;
+            else total += num;
         }
-        return ans;
+        return total;
     }
 }
