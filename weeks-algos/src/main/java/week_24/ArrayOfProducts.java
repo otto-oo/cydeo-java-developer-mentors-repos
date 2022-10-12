@@ -16,18 +16,18 @@ public class ArrayOfProducts {
         System.out.println(Arrays.toString(productArray3(new int[]{1, 2, 3, 4})));
     }
 
-    public static int[] productsOfOthers(int[] nums) {
-        var resultArray = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            int finalI = i;
-            AtomicInteger temp = new AtomicInteger(1);
-         var list=   Arrays.stream(nums).boxed()
-                .filter(num -> num != nums[finalI])
-                .map(n -> temp.getAndUpdate(v -> v * n)).toList();
-            resultArray[i] = temp.get();
-        }
-        return resultArray;
-    }
+//    public static int[] productsOfOthers(int[] nums) {
+//        var resultArray = new int[nums.length];
+//        for (int i = 0; i < nums.length; i++) {
+//            int finalI = i;
+//            AtomicInteger temp = new AtomicInteger(1);
+//         var list=   Arrays.stream(nums).boxed()
+//                .filter(num -> num != nums[finalI])
+//                .map(n -> temp.getAndUpdate(v -> v * n)).toList();
+//            resultArray[i] = temp.get();
+//        }
+//        return resultArray;
+//    }
     public static int[] productExceptSelf(int[] nums) {
 
         // The length of the input array
