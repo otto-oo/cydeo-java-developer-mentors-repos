@@ -17,7 +17,8 @@ public class DogApp {
     public static void foo(Dog d) {
         System.out.println("foo method dog name Max ? " + d.getName().equals("Max")); // true
         // change d inside of foo() to point to a new Dog instance "Fifi"
-        d = new Dog("Fifi");
+       d = new Dog("Fifi");
+      //  d.setName("Fifi");
         System.out.println("foo method dog name Fifi ? " + d.getName().equals("Fifi")); // true
     }
 }
