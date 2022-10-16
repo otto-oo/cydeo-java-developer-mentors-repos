@@ -40,7 +40,6 @@
         <table class="table">
             <thead>
             <tr>
-
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Email</th>
@@ -52,8 +51,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="user,userStat:${users}"
-                th:style="${userStat.index>9} ? 'color:red'">
+            <tr th:each="user,userStat:${users}">
                 <td th:text="${user.firstName}"></td>
                 <td th:text="${user.lastName}"></td>
                 <td th:text="${user.email}"></td>
