@@ -83,6 +83,53 @@ Constraints:
         return total;
     }
 
+    static int withMapStartingLeft(String s) {
+        if (s == null || s.isBlank()) return -1;
+        Map<Character, Integer> map = Map.of('I', 1, 'V', 5, 'X', 10, 'L', 50, 'C', 100, 'D', 500, 'M', 1000);
+        int current = 0;
+        int total = 0;
+        int next = 0;
+        for (int i = 0; i < s.length(); i++) {
+            next = map.get(s.charAt(i));
+            if (current >= next) {
+                total = total + current;
+            } else {
+                total = total - current;
+            }
+            current = next;
+        }
+        total += next;
+        return total;
+    }
+
+    public enum Roman {
+        I(1),V(5),X(10),L(50),C(100),D(500),M(1000);
+        private int value;
+        Roman(int value){
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
+
+    static int withEnum(String s) {
+        int total = 0;
+        int prev = 0;
+        for (int i = s.length()-1; i >= 0; i--) {
+            int current = Roman.valueOf(s.charAt(i)+"").value;
+            if (prev > current){
+                total = total - current;
+            } else {
+                total = total + current;
+            }
+            prev = current;
+        }
+
+        return total;
+    }
+
     public static int withSwitchCase(String s) {
         if (s == null || s.isBlank()) return -1;
         int total = 0, num = 0;

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CollectionTest {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>(List.of(1,2,3));
+        List<Integer> list = new ArrayList<>(List.of(1, 2, 3));
         System.out.println("original list : " + list);
         addToList(list);
         System.out.println("after addition : " + list);
@@ -18,19 +18,19 @@ public class CollectionTest {
         System.out.println("after assigning new list : " + list);
     }
 
-    static void addToList(List<Integer> nums){
+    static void addToList(List<Integer> nums) {
         nums.add(4);
     }
 
-    static void deleteList(List<Integer> nums){
+    static void deleteList(List<Integer> nums) {
         nums = null;
     }
 
-    static void clearList(List<Integer> nums){
+    static void clearList(List<Integer> nums) {
         nums.clear();
     }
 
-    static void assignNewList(List<Integer> nums){
+    static void assignNewList(List<Integer> nums) {
         nums = new LinkedList<>();
         nums.add(5);
     }
