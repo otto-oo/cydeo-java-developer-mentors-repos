@@ -97,6 +97,42 @@ public class PalindromeLinkedList {
 
     }
 
+    private static boolean checkPalindrome(Node head) {
+
+        if (head == null || head.next == null) {
+            return true;
+        }
+
+        Node slow = head;
+        Node fast = head;
+        Node prev = null;
+
+        while (fast != null && fast.next !=null) {
+            fast = fast.next.next;
+
+            Node temp = slow;
+            slow = slow.next;
+
+            temp.next = prev;
+            prev = temp;
+        }
+
+        if (fast != null) { // handling for odd length linkedList
+            slow = slow.next;
+        }
+
+        while (prev != null && slow !=null) {
+            if (prev.value != slow.value) {
+                return false;
+            }
+            prev = prev.next;
+            slow = slow.next;
+        }
+
+        return true;
+
+    }
+
 }
 
 class Node {
