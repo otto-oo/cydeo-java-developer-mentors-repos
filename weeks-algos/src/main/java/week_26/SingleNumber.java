@@ -12,6 +12,7 @@ public class SingleNumber {
         System.out.println(findSingle1(input));
         System.out.println(findSingle2(input));
         System.out.println(findSingle3(input));
+        System.out.println(findSingle4(input));
 
     }
 
@@ -60,5 +61,13 @@ public class SingleNumber {
             }
         }
         return setOfNums.iterator().next();
+    }
+
+    public static int findSingle4(int[] nums) {
+        int result = 0;
+        for(int i : nums){
+            result ^= i;
+        }
+        return result;
     }
 }
