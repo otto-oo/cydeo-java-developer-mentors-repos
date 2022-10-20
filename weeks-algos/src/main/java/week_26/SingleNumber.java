@@ -70,4 +70,29 @@ public class SingleNumber {
         }
         return result;
     }
+
+
+    public static int findSingle5(int[] nums) {
+            Set<Integer> set = new HashSet<>();
+            int sumOfAllElements = 0;
+            int sumOfUniqueElements = 0;
+
+            for (int i = 0; i < nums.length; i++) {
+                if (set.add(nums[i]))   sumOfUniqueElements += nums[i];
+                sumOfAllElements += nums[i];
+            }
+            return 2 * sumOfUniqueElements - sumOfAllElements;
+        }
+
+/*4,1,1,2,2
+    4+1+2  = 7   sum of unique elements
+    10              sum of all elements
+    2*7 -10 = 4      the difference - is our searching element
+
+  -4,1,1,2,2
+    -4+1+2  = -1   sum of unique elements
+    2              sum of all elements
+    2*(-1) -2 = -4      the difference - is our searching element
+*/
+
 }
