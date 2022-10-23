@@ -25,34 +25,35 @@ public class TimeNeededToBuyTickets {
 
 
     public static int timeRequiredToBuyWithQueue(int[] tickets, int k) {
-
-        Queue<Integer> ticketQueue = Arrays.stream(tickets).boxed().collect(Collectors.toCollection(ArrayDeque::new));
+        Queue<Integer> ticketQueue = Arrays.stream(tickets).boxed()
+                .collect(Collectors.toCollection(ArrayDeque::new));
 
         int totalTime = 0;
-        int currentIndex = 0;
-
         while (!ticketQueue.isEmpty()) {
 
-            if (ticketQueue.peek() != 0) {
-                int currentTicketCount = ticketQueue.poll() - 1;
-                ticketQueue.add(currentTicketCount);
-                totalTime++;
-                if (currentIndex == k && currentTicketCount == 0) {
-                    break;
+            int leftTicketCount = ticketQueue.poll()-1;
+            totalTime++;
+
+            if (leftTicketCount == 0){
+                if (k == 0){
+                    return totalTime;
                 }
-            } else {
-                ticketQueue.add(ticketQueue.poll());
+                else if (k > 0){
+                    k--;
+                }
             }
-
-            currentIndex++;
-
-            if (currentIndex == tickets.length) {
-                currentIndex = 0;
+            else {
+                ticketQueue.add(leftTicketCount);
+                if (k > 0){
+                    k--;
+                }
+                else if (k == 0){
+                    k = ticketQueue.size() - 1;
+                }
             }
         }
 
-
-        return totalTime;
+        return -1;
     }
 
     public static int timeRequiredToBuyFast(int[] tickets, int k) {
