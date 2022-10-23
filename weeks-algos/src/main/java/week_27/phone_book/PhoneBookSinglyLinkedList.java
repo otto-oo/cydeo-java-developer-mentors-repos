@@ -110,9 +110,7 @@ public class PhoneBookSinglyLinkedList {
     /**
      * Time complexity: O(1)  With the help of the hash map structure,
      * we did decrease the search operation complexity to the O(1).
-     *
      * Space complexity: 0(1) As constant extra space is used.
-     *
      * @param firstName this parameter will give the first corresponding node in LinkedList.
      * @return the PhoneBookNode object that has parameterized firstName.
      */
@@ -161,7 +159,7 @@ public class PhoneBookSinglyLinkedList {
      * Time complexity: O(n) Space complexity: 0(1) As constant extra space is used.
      * This method will just delete the first occurrence of relevant record.
      *
-     * @param firstName will define the first node that will be deleted.
+     * @param firstName will indicate the first node that will be deleted.
      */
     public void deleteByFirstName(String firstName) {
 
