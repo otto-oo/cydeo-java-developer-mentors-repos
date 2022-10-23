@@ -8,8 +8,6 @@ import lombok.ToString;
  * In this practice, we did avoid to use of private fields not to confuse.
  * You can convert this implementation to the encapsulated way with your own.
  */
-@NoArgsConstructor
-@AllArgsConstructor
 public class PhoneBookNode {
 
     public PhoneBookNode next;

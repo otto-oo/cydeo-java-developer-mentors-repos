@@ -2,7 +2,7 @@ package week_27.phone_book;
 
 import java.util.*;
 
-public class PhoneBookSinglyLinkedListttt {
+public class PhoneBookSinglyLinkedList {
 
     public PhoneBookNode head;
     public PhoneBookNode tail;
