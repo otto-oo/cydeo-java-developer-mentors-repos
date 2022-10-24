@@ -33,6 +33,10 @@ public class PhoneBookSinglyLinkedList {
      * Time complexity: O(n) Space complexity: 0(1) As constant extra space is used.
      */
     public void printPhoneBook() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("No record is available in phone book");
+        }
+
         PhoneBookNode current = head;
         int element = 1;
         while (current != null) {
