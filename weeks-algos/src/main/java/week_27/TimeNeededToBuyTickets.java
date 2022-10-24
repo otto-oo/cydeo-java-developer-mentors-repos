@@ -1,8 +1,6 @@
 package week_27;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Queue;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TimeNeededToBuyTickets {
@@ -104,5 +102,28 @@ public class TimeNeededToBuyTickets {
             }
         }
         return seconds;
+    }
+
+    // TC : O(n) SC : O(n)
+    static int withDeque(int[] tickets, int k) {
+        int result = 0;
+        Deque<int[]> deque = new LinkedList<>();
+        for (int i = 0; i < tickets.length; i++) {
+            int[] person = {tickets[i], 0};
+            if (i == k)
+                person[1] = 1;
+            deque.addLast(person);
+        }
+
+        while (!deque.isEmpty()) {
+            int[] front = deque.pollFirst();
+            result++;
+            if (--front[0] > 0) {
+                deque.addLast(front);
+            }
+            if (front[1] == 1 && front[0] == 0)
+                return result;
+        }
+        return result;
     }
 }
