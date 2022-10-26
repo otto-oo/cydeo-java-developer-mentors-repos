@@ -9,14 +9,21 @@ public class TimeNeededToBuyTickets {
 
         int[] tickets1 = {2, 3, 2};
         System.out.println(timeRequiredToBuyWithQueue(tickets1, 2));
+//        System.out.println(getTimeWithQueue(tickets1, 2));
+//        System.out.println(timeRequiredToBuyWithoutQueue(tickets1, 2));
+//        System.out.println(timeRequiredToBuySlow(tickets1, 2));
+//        System.out.println(timeRequiredToBuyFast(tickets1, 2));
+//        System.out.println(getTheTime(tickets1, 2));
+//        System.out.println(withDeque(tickets1, 2));
+
         int[] tickets2 = {5, 1, 1, 1};
-        System.out.println(timeRequiredToBuyFast(tickets2, 0));
-
-        System.out.println(getTheTime1(tickets1, 2));
-        System.out.println(getTheTime1(tickets2, 0));
-
-        System.out.println(getTheTime2(tickets1, 2));
-        System.out.println(getTheTime2(tickets2, 0));
+        System.out.println(timeRequiredToBuyWithQueue(tickets2, 0));
+//        System.out.println(getTimeWithQueue(tickets2, 0));
+//        System.out.println(timeRequiredToBuyWithoutQueue(tickets2, 0));
+//        System.out.println(timeRequiredToBuySlow(tickets2, 0));
+//        System.out.println(timeRequiredToBuyFast(tickets2, 0));
+//        System.out.println(getTheTime(tickets2, 0));
+//        System.out.println(withDeque(tickets2, 0));
 
 
     }
@@ -54,6 +61,70 @@ public class TimeNeededToBuyTickets {
         return -1;
     }
 
+    public static int getTimeWithQueue(int[] tickets, int k) {
+        Queue<Integer> ticketQueue = new ArrayDeque<>();
+
+        while (tickets[k] != 0) {
+            for (int i = 0; i < tickets.length; i++) {
+                if (tickets[i] == 0) {
+                    continue;
+                }
+                if (tickets[k] == 0) {
+                    break;
+                }
+                ticketQueue.add(tickets[i]--);
+            }
+        }
+        return ticketQueue.size();
+    }
+
+    public static int timeRequiredToBuyWithoutQueue(int[] tickets, int k) {
+        int seconds = 0;
+        int index = 0;
+
+        while (tickets[k] != 0) {
+
+            if (tickets[index] != 0) {
+                seconds++;
+                tickets[index] -= 1;
+            }
+
+            index++;
+            if (index == tickets.length) {
+                index = 0;
+            }
+        }
+        return seconds;
+    }
+
+    public static int timeRequiredToBuySlow(int[] tickets, int k) {
+        Queue<Integer> ticketQueue = new ArrayDeque<>();
+        Arrays.stream(tickets).forEach(ticketQueue::add);
+        int totalTime = 0;
+        int currentIndex = 0;
+        while (!ticketQueue.isEmpty()) {
+
+            if (ticketQueue.peek() != 0) {
+                int currentTicketCount = ticketQueue.poll() - 1;
+                ticketQueue.add(currentTicketCount);
+                totalTime++;
+
+                if (currentIndex == k && currentTicketCount == 0) {
+                    break;
+                }
+            } else {
+                ticketQueue.add(ticketQueue.poll());
+            }
+
+            currentIndex++;
+            if (currentIndex == tickets.length) {
+                currentIndex = 0;
+            }
+
+        }
+        return totalTime;
+    }
+
     public static int timeRequiredToBuyFast(int[] tickets, int k) {
         int seconds = 0;
 
@@ -72,7 +143,7 @@ public class TimeNeededToBuyTickets {
 
     }
 
-    public static int getTheTime1(int[] tickets, int k) {
+    public static int getTheTime(int[] tickets, int k) {
         int seconds = 0;
         for (int i = 0; i < tickets.length; i++) {
             if (i <= k) {
@@ -82,25 +153,6 @@ public class TimeNeededToBuyTickets {
             }
         }
 
-        return seconds;
-    }
-
-    public static int getTheTime2(int[] tickets, int k) {
-        int seconds = 0;
-        int index = 0;
-
-        while (tickets[k] != 0) {
-
-            if (tickets[index] != 0) {
-                seconds++;
-                tickets[index] -= 1;
-            }
-
-            index++;
-            if (index == tickets.length) {
-                index = 0;
-            }
-        }
         return seconds;
     }
 
