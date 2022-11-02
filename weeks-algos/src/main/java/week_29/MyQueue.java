@@ -1,4 +1,4 @@
-package week_29_possible_algos;
+package week_29;
 
 import java.util.Stack;
 
@@ -9,7 +9,7 @@ Implement a first in first out (FIFO) queue using only two stacks. The implement
 
 Implement the MyQueue class:
 
-    void enqueue(int x) Pushes element x to the back of the queue.
+    void enqueue(int num) Pushes element num to the back of the queue.
     int dequeue() Removes the element from the front of the queue and returns it.
     int peek() Returns the element at the front of the queue.
     boolean empty() Returns true if the queue is empty, false otherwise.
@@ -23,13 +23,14 @@ class Main {
         MyQueue q = new MyQueue();
         q.enqueue(1);
         q.enqueue(2);
-        System.out.println(q.dequeue());    // print 1
+        System.out.println(q.dequeue());    // prints 1
         q.enqueue(3);
         q.enqueue(4);
+        System.out.println(q.isEmpty());    // prints false
         q.enqueue(5);
-        System.out.println(q.dequeue());    // print 2
+        System.out.println(q.dequeue());    // prints 2
         q.enqueue(6);
-        System.out.println(q.peek());       // print 3
+        System.out.println(q.peek());       // prints 3
     }
 }
 
@@ -59,27 +60,28 @@ deQueue()
 Here time complexity will be O(n)
  */
 public class MyQueue {
-    Stack<Integer> input = new Stack<>();
-    Stack<Integer> output = new Stack<>();
+    Stack<Integer> stack1 = new Stack<>();
+    Stack<Integer> stack2 = new Stack<>();
 
     public void enqueue(int num) {
-        input.push(num);
+        stack1.push(num);
     }
 
     public int dequeue() {
         peek();
-        return output.pop();
+        return stack2.pop();
     }
 
     public int peek() {
-        if (output.empty())
-            while (!input.empty())
-                output.push(input.pop());
-        return output.peek();
+        if (stack2.empty())
+            while (!stack1.empty()) {
+                stack2.push(stack1.pop());
+            }
+        return stack2.peek();
     }
 
-    public boolean empty() {
-        return input.empty() && output.empty();
+    public boolean isEmpty() {
+        return stack1.empty() && stack2.empty();
     }
 }
 

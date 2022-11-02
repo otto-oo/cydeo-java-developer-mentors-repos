@@ -1,4 +1,4 @@
-package week_29_possible_algos;
+package week_29.archive;
 
 import java.util.Arrays;
 import java.util.HashMap;
