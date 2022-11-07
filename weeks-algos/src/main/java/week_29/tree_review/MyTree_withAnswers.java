@@ -66,7 +66,6 @@ public class MyTree_withAnswers {
             System.out.print(toVisit.value + ", ");
             if (toVisit.leftChild != null) queue.add(toVisit.leftChild);
             if (toVisit.rightChild != null) queue.add(toVisit.rightChild);
-
         }
     }
 }
