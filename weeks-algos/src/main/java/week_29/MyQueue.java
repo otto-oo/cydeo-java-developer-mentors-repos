@@ -125,8 +125,8 @@ so that deQueue operation just pops from stack1. To put the element at top of st
  */
 
 class MyQueue2 {
-    Stack<Integer> s1 = new Stack<Integer>();
-    Stack<Integer> s2 = new Stack<Integer>();
+    Stack<Integer> s1 = new Stack<>();
+    Stack<Integer> s2 = new Stack<>();
 
     void enQueue(int num) {
         // Move all elements from s1 to s2
