@@ -2,7 +2,7 @@ package week_29.tree_review;
 
 public class TreeApp {
     public static void main(String[] args) {
-        MyTree_withAnswers tree = new MyTree_withAnswers();
+        MyTree tree = new MyTree();
 //        int[] numbers = new int[]{7, 9, 4, 6, 8, 10, 1, 0, 2, 5, 12, 11, 15};
         int[] numbers = new int[]{7, 9, 4, 6, 8, 10, 1};
         for (int each : numbers) {
