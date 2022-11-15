@@ -1,9 +1,9 @@
 package week_29.tree_review;
 
 public class Node {
-    int value;
-    Node leftChild;
-    Node rightChild;
+    public int value;
+    public Node leftChild;
+    public Node rightChild;
 
     public Node(int value) {
         this.value = value;

@@ -53,7 +53,7 @@ Constraints:
     https://leetcode.com/problems/roman-to-integer/
      */
     public static void main(String[] args) {
-        String[] inputs = {"III","LVIII","MCMXCIV"};
+        String[] inputs = {"MCMXCIV"}; //"III","LVIII",
         for (String s : inputs) {
             System.out.println(withMap(s));
             System.out.println(withSwitchCase(s));
@@ -80,6 +80,8 @@ Constraints:
             }
             prev = current;
         }
+
+
         return total;
     }
 

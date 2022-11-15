@@ -4,9 +4,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class MyTree_withAnswers {
-    Node root;
+    public Node root;
 
-    void insert(int value) {
+    public void insert(int value) {
         Node newNode = new Node(value);
         if (root == null) {
             root = newNode;
@@ -36,28 +36,28 @@ public class MyTree_withAnswers {
     }
 
     // Root-Left- Right
-    void preOrderTraversal(Node root) {
+    public void preOrderTraversal(Node root) {
         if (root == null) return;
         System.out.print(root.value + ", ");
         preOrderTraversal(root.leftChild);
         preOrderTraversal(root.rightChild);
     }
 
-    void inOrderTraversal(Node root) {
+    public void inOrderTraversal(Node root) {
         if (root == null) return;
         inOrderTraversal(root.leftChild);
         System.out.print(root.value + ", ");
         inOrderTraversal(root.rightChild);
     }
 
-    void postOrderTraversal(Node root) {
+    public void postOrderTraversal(Node root) {
         if (root == null) return;
         postOrderTraversal(root.leftChild);
         postOrderTraversal(root.rightChild);
         System.out.print(root.value + ", ");
     }
 
-    void levelOrderTraversal() {
+    public void levelOrderTraversal() {
         if (root == null) return;
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
