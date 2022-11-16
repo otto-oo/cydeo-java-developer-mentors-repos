@@ -11,42 +11,42 @@ import java.util.Stack;
 
 public class TreeApp_Week30 {
 
-    static List<Integer> list=new ArrayList<>();
+    static List<Integer> list = new ArrayList<>();
 
     public static void main(String[] args) {
-        MyTree_withAnswers mytree=new MyTree_withAnswers();
-        int[] numbers = new int[]{10,6,4,20};
+        MyTree_withAnswers myTree = new MyTree_withAnswers();
+        int[] numbers = new int[]{10, 6, 4, 20};
         for (int each : numbers) {
-            mytree.insert(each);
+            myTree.insert(each);
         }
-        VisualizeTree.printTree(mytree.root, null, false);
+        VisualizeTree.printTree(myTree.root, null, false);
 
         System.out.println("***************************");
-        System.out.println(inOrderTraversalReturnList(mytree.root));
+        System.out.println(inOrderTraversalReturnList(myTree.root));
         System.out.println("***************************");
-        System.out.println(inorderTraversalwithIterationReturnList(mytree.root));
+        System.out.println(inorderTraversalWithIterationReturnList(myTree.root));
 
 
     }
 
-    public static List<Integer>  inOrderTraversalReturnList(Node root) {
+    public static List<Integer> inOrderTraversalReturnList(Node root) {
         if (root == null) return list;
         inOrderTraversalReturnList(root.leftChild);
-        if(root!=null)
-        list.add(root.value);
+        if (root != null)
+            list.add(root.value);
         //System.out.print(root.value + ", ");
         inOrderTraversalReturnList(root.rightChild);
         return list;
     }
 
-    public static List<Integer> inorderTraversalwithIterationReturnList(Node root) {
+    public static List<Integer> inorderTraversalWithIterationReturnList(Node root) {
         List<Integer> list = new ArrayList<Integer>();
         Stack<Node> stack = new Stack<Node>();
-        while(!stack.isEmpty() || root!=null){
-            if(root!=null){
+        while (!stack.isEmpty() || root != null) {
+            if (root != null) {
                 stack.push(root);
-                root=root.leftChild;
-            }else{
+                root = root.leftChild;
+            } else {
                 root = (Node) stack.pop();
                 list.add(root.value);
                 root = root.rightChild;
