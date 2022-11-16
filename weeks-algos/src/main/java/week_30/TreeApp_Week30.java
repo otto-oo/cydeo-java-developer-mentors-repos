@@ -30,8 +30,9 @@ public class TreeApp_Week30 {
     }
 
     public static List<Integer>  inOrderTraversalReturnList(Node root) {
-        if (root == null) return null;
+        if (root == null) return list;
         inOrderTraversalReturnList(root.leftChild);
+        if(root!=null)
         list.add(root.value);
         //System.out.print(root.value + ", ");
         inOrderTraversalReturnList(root.rightChild);
@@ -48,7 +49,6 @@ public class TreeApp_Week30 {
             }else{
                 root = (Node) stack.pop();
                 list.add(root.value);
-                //System.out.print(root.value + ", ");
                 root = root.rightChild;
             }
         }
