@@ -28,7 +28,7 @@ public class RangeSumOfBST {
             if (node != null) {
                 if (low <= node.val && node.val <= high)
                     ans += node.val;
-                if (low < node.val)
+                if (node.val > low)
                     stack.push(node.left);
                 if (node.val < high)
                     stack.push(node.right);
@@ -49,7 +49,7 @@ public class RangeSumOfBST {
         if (node != null) {
             if (low <= node.val && node.val <= high)
                 answer += node.val;
-            if (low < node.val)
+            if (node.val > low)
                 dfs(node.left, low, high);
             if (node.val < high)
                 dfs(node.right, low, high);
