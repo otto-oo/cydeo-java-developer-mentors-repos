@@ -1,4 +1,4 @@
-package week_32.lca;
+package week_32.lca.solution;
 
 
 

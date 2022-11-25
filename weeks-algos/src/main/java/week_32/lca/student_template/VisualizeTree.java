@@ -1,7 +1,7 @@
-package week_32.lca;
+package week_32.lca.student_template;
 
 public class VisualizeTree {
-    public  static void printTree( TreeNode root, Trunk prev, boolean isLeft)
+    public  static void printTree(TreeNode root, Trunk prev, boolean isLeft)
     {
         if (root == null) {
             return;
