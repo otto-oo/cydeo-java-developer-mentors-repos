@@ -18,4 +18,17 @@ public class SumOfDigits {
         }
         return digitalRoot(sum);
     }
+
+    static int withLoop(long n) {
+        int sum;
+        do {
+            sum = 0;
+            while (n > 0) {
+                sum += n % 10;
+                n = n / 10;
+            }
+            n = sum;
+        } while (sum > 9);
+        return sum;
+    }
 }
