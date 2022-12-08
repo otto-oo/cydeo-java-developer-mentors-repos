@@ -1,5 +1,7 @@
 package week_33;
 
+import java.util.Stack;
+
 public class BestTimeToBuyAndSellStock {
     /*
     121. Best Time to Buy and Sell Stock
@@ -67,5 +69,25 @@ Constraints:
             profit = Math.max(profit, prices[i] - minBuy);
         }
         return profit;      //return the maximum profit...
+    }
+
+    public int withStack(int[] nums) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(nums[0]);
+        int profit = 0;
+        int maxProfit = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (stack.peek() < nums[i]) { // if the next no is greater calculate the profit
+                profit = nums[i] - stack.peek();
+            } else {
+                stack.pop(); // if the no is smaller than pop the previous from the stack and push the smaller one
+                stack.push(nums[i]);
+            }
+            if (profit > maxProfit) {
+                maxProfit = profit;
+            }
+
+        }
+        return maxProfit;
     }
 }

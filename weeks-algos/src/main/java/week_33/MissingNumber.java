@@ -35,6 +35,7 @@ Follow up: Could you implement a solution using only O(1) extra space complexity
     public static void main(String[] args) {
         int[] ints = {9, 6, 4, 2, 3, 5, 7, 0, 1};
         System.out.println(withMath(ints));
+        System.out.println(withSum(ints));
     }
 
     static int withSorting(int[] nums) {
@@ -44,6 +45,17 @@ Follow up: Could you implement a solution using only O(1) extra space complexity
                 return i;
         }
         return nums.length;
+    }
+
+    static int withSum(int[] nums) {
+        int n = nums.length;
+        int expected = n;       // numbers in the range contains length of array
+        int actual = 0;
+        for (int i = 0; i < n; i++) {
+            expected += i;
+            actual += nums[i];
+        }
+        return expected - actual;
     }
 
     //sum of n natural numbers = n*(n+1)/2
