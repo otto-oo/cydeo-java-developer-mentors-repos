@@ -1,4 +1,4 @@
-package com.builder.basics_1.singular;
+package basics_1.singular;
 
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.util.List;
 
 @Builder
 @Data
-class Student {
+class Student_Singular {
     @NonNull                  //   @Nonnull make sure name filed is a mandatory field
     private String name;
     private String surname;

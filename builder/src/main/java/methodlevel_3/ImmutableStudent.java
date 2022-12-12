@@ -1,4 +1,4 @@
-package com.builder.methodlevel_3;
+package methodlevel_3;
 
 import lombok.Builder;
 import lombok.Value;

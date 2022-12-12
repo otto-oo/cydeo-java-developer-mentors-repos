@@ -1,9 +1,11 @@
-package com.builder.basics_1;
+package withInheritance;
 
-import java.util.List;
 
-public class MainBuilder {
 
+import java.time.Instant;
+import java.util.Date;
+
+public class MainBuilderWithInheritance {
     public static void main(String[] args) {
         var student = Student.builder()
                 .name("John")
@@ -11,11 +13,11 @@ public class MainBuilder {
                 .email("email")
                 .phoneNumber(123455)
                 .year(2)
-                .courses(List.of("Java","Spring"))
+                .membershipStartDate(Date.from(Instant.now()))  // comes from parent class
+                .membershipNumber(321l)    // comes from parent class
                 .build();
 
         System.out.println(student);
-
-
     }
+
 }

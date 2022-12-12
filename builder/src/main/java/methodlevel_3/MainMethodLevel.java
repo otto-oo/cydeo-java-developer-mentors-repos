@@ -1,4 +1,4 @@
-package com.builder.methodlevel_3;
+package methodlevel_3;
 
 public class MainMethodLevel {
     public static void main(String[] args) {

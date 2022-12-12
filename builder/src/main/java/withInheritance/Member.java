@@ -1,4 +1,4 @@
-package com.builder.withInheritance;
+package withInheritance;
 
 
 import lombok.Data;

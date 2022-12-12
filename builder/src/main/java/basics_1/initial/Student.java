@@ -1,17 +1,20 @@
-package com.builder.withInheritance;
+package basics_1.initial;
+
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.experimental.SuperBuilder;
 
+import java.util.List;
 
-
-@SuperBuilder
+@Builder
 @Data
-public class Student extends Member {
+class Student {
+
+
     private String name;
     private String surname;
     private String email;
+    List<String> courses;
     private int year;
     private long phoneNumber;
 

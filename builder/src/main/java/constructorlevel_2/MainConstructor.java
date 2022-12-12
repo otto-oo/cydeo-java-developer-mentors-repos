@@ -1,4 +1,4 @@
-package com.builder.constructorlevel_2;
+package constructorlevel_2;
 
 public class MainConstructor {
 
