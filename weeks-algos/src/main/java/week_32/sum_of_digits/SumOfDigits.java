@@ -31,4 +31,6 @@ public class SumOfDigits {
         } while (sum > 9);
         return sum;
     }
+
+
 }

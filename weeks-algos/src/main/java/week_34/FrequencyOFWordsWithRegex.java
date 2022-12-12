@@ -63,7 +63,8 @@ public class FrequencyOFWordsWithRegex {
 
         String given = "This is an example paragraph in which words appear multiple times.  However, it is important that we consider all possibilities in our count of words.  Please feel free to ask questions based on the requirements as this is an interactive interview!";
 
-//        System.out.println("Task2.getFreqOFWords2(given) = " + Task2.getFreqOFWords2(given));
+//        System.out.println("Task2.getFreqOFWords2(given) = " +
+
         getFreqOFWords2(given).entrySet().stream().forEach(x -> System.out.println(x.getKey() + " " + x.getValue()));
         long isCount = getFreqOFWords2(given).get("is");
         Assert.assertEquals("", 3, isCount);

@@ -1,6 +1,8 @@
 package week_31;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 
 public class RangeSumOfBST {
@@ -14,10 +16,18 @@ public class RangeSumOfBST {
         root.left.right = new TreeNode(7);
         root.right.right = new TreeNode(18);
 
-        System.out.println(rangeSumBST(root,7,15));
-        System.out.println(rangeSumBSTRecursive(root,7,15));
+        System.out.println(rangeSumBST(root, 7, 15));
+        System.out.println(rangeSumBSTRecursive(root, 7, 15));
 
     }
+
+    List<TreeNode> list = new ArrayList<>();
+
+    public static int rangeSumBST10(TreeNode root, int low, int high) {
+
+        return 0;
+    }
+
 
     public static int rangeSumBST(TreeNode root, int low, int high) {
         int ans = 0;
@@ -98,8 +108,12 @@ public class RangeSumOfBST {
                 if (n >= low && n <= high){
                     result += n;
                 }
-                if (n > low ) q.push(current.left);
-                if (n < high) q.push(current.right);
+                if (n > low ){
+                    q.push(current.left);
+                }
+                if (n < high) {
+                    q.push(current.right);
+                }
             }
             current = q.pop();
         }

@@ -34,12 +34,16 @@ Follow up: What if the inputs contain Unicode characters? How would you adapt yo
         Arrays.sort(ch1);             // TC : O(n log n)
         Arrays.sort(ch2);             // TC : O(n log n)
         return Arrays.equals(ch1, ch2); // TC : O(n)
+
+//        return Arrays.equals(Arrays.sort(s.toCharArray()),Arrays.sort(t.toCharArray()));
     }
 
     // TC : O(n) SC : O(n)
     public boolean withMap(String s, String t) {
         if (s.length() != t.length()) return false;
         Map<Character, Integer> map = new HashMap<>();
+        Map<Character, Integer> map2 = new HashMap<>();
+
 
         for (int i = 0; i < s.length(); i++) {               // Time Complexity: O(n)
             Character ch = s.charAt(i);
