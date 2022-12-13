@@ -1,10 +1,22 @@
 package week_32.sum_of_digits;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class SumOfDigits {
 
     public static void main(String[] args) {
         System.out.println("digitalRoot(129) = " + digitalRoot(129));
+
+        int[] numbers = {4};
+        Arrays.sort(numbers);
+        var result = Arrays.binarySearch(numbers, 4);
+        System.out.println(result);
+
     }
+
+
 
 
     public static int digitalRoot(int n) {
