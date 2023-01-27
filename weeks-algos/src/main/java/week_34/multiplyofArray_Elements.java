@@ -5,18 +5,14 @@ import java.util.Arrays;
 public class multiplyofArray_Elements {
 
     public static void main(String[] args) {
-        //int[] num={2, 3, 4, 5, 6};
-        int[] num={2};
-        System.out.println("input = " +Arrays.toString(num));
-        System.out.println("output = "+Arrays.toString(multiplyArray(num)));
-        //System.out.println("output ="+Arrays.toString(multiply_Array(num)));
-        System.out.println("output ="+Arrays.toString(multiply_Array_Element(num)));
+       int[] num={2, 3, 4, 5, 6};
+        //int[] num={2};
+       System.out.println("input = " +Arrays.toString(num));
+       System.out.println("output = "+Arrays.toString(multiplyArray(num)));
+        System.out.println("output ="+Arrays.toString(multiply_Array(num)));
+       System.out.println("output ="+Arrays.toString(multiply_Array_Element(num)));
+        System.out.println("output ="+Arrays.toString(dealWithIt(num)));
     }
-
-
-
-
-
 
 
      static int[] multiplyArray(int[] num){
@@ -86,5 +82,24 @@ public class multiplyofArray_Elements {
         // Update last array element
         num[num.length-1] = prev * num[num.length-1];
         return num;
+    }
+
+    //with space complexity O(1)  (without additional array)
+    private static int[] dealWithIt(int[] array) {
+
+        int length = array.length;
+        int first = array[0] * array[1],
+                last = array[length - 2] * array[length - 1],
+                prev = array[0];
+
+        for (int i = 1; i < length - 1; i++) {
+            int prevTmp = array[i];
+            array[i] = prev * array[i + 1];
+            prev = prevTmp;
+        }
+        array[0] = first;
+        array[length - 1] = last;
+
+        return array;
     }
 }
