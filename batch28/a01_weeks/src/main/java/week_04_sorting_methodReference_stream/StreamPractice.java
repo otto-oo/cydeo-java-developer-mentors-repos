@@ -1,4 +1,4 @@
-package week_04_methodReference_stream;
+package week_04_sorting_methodReference_stream;
 
 import java.util.*;
 import java.util.function.Function;
@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static week_04_methodReference_stream.DataGenerator.*;
+import static week_04_sorting_methodReference_stream.DataGenerator.*;
 
 class StreamPractice {
 

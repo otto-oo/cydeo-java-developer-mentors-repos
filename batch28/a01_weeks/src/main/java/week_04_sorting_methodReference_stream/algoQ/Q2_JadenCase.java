@@ -1,4 +1,4 @@
-package week_04_methodReference_stream.algoQ;
+package week_04_sorting_methodReference_stream.algoQ;
 
 import java.util.Locale;
 

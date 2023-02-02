@@ -1,4 +1,4 @@
-package week_04_methodReference_stream.methodReference;
+package week_04_sorting_methodReference_stream.methodReference;
 
 public class StaticMethodReference {
 

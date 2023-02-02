@@ -1,9 +1,9 @@
-package week_04_methodReference_stream;
+package week_04_sorting_methodReference_stream;
 
 import java.util.Collections;
 import java.util.Comparator;
 
-import static week_04_methodReference_stream.DataGenerator.*;
+import static week_04_sorting_methodReference_stream.DataGenerator.*;
 
 public class SortingPractice {
 

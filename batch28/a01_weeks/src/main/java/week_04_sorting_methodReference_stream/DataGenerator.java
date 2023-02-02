@@ -1,4 +1,4 @@
-package week_04_methodReference_stream;
+package week_04_sorting_methodReference_stream;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,13 +1,12 @@
-package week_04_methodReference_stream.lambda_sort_doublecolon_tasks.solutions;
+package week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.solutions;
 
 
-import week_04_methodReference_stream.lambda_sort_doublecolon_tasks.DataGenerator;
-import week_04_methodReference_stream.lambda_sort_doublecolon_tasks.Employee;
+import week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.DataGenerator;
+import week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.Employee;
 
 import java.util.Comparator;
-import java.util.List;
 
-import static week_04_methodReference_stream.lambda_sort_doublecolon_tasks.solutions.Service.*;
+import static week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.solutions.Service.*;
 
 
 public class MeetingPractice_Solutions {

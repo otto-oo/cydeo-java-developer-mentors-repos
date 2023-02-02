@@ -1,6 +1,6 @@
-package week_04_methodReference_stream.lambda_sort_doublecolon_tasks.solutions;
+package week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.solutions;
 
-import week_04_methodReference_stream.lambda_sort_doublecolon_tasks.*;
+import week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.*;
 
 import java.util.ArrayList;
 import java.util.List;
