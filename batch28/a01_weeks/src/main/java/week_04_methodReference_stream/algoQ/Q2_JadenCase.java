@@ -1,4 +1,4 @@
-package week_04_methodReference_stream;
+package week_04_methodReference_stream.algoQ;
 
 import java.util.Locale;
 
@@ -11,7 +11,7 @@ Jaden-Cased: "How Can Mirrors Be Real If Our Eyes Aren't Real"
 Note that this function should a return empty string for an empty string or null.
  */
 
-public class Q2_JadenCase {
+class Q2_JadenCase {
 
     public static String toJadenCase1(String phrase) {
         if (phrase == null || phrase.isEmpty()) {
@@ -25,7 +25,7 @@ public class Q2_JadenCase {
         return result.trim();
     }
 
-    public static String toJadenCase2(String phrase) {
+    private static String toJadenCase2(String phrase) {
         if (phrase == null || phrase.isEmpty()) {
             return "";
         }
@@ -38,19 +38,9 @@ public class Q2_JadenCase {
         return new String(array);
     }
 
-    //Jawid
-    public static String toJadenCase3(String str){
-        String[] str1 = str.split(" ");
-        String result = "";
-
-        for (String each : str1) {
-            result+= each.substring(0,1).toUpperCase()+ each.substring(1).toLowerCase()+" ";
-        }
-        return result;
-    }
 
     public static void main(String[] args) {
-        System.out.println(toJadenCase3("How can mirrors be real if our eyes aren't real"));
+        System.out.println(toJadenCase1("How can mirrors be real if our eyes aren't real"));
         System.out.println(toJadenCase2(""));
         System.out.println(toJadenCase1(null));
         System.out.println(toJadenCase2("most trees are blue"));

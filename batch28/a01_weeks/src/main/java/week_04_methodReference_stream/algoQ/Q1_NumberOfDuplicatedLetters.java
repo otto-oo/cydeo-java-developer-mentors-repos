@@ -1,4 +1,4 @@
-package week_04_methodReference_stream;
+package week_04_methodReference_stream.algoQ;
 
 /*
 Problem : Count the number of Duplicated Letters
@@ -16,9 +16,10 @@ Example:
  */
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
-public class Q1_NumberOfDuplicatedLetters {
+class Q1_NumberOfDuplicatedLetters {
 
     public static int getNumber(String str) {
         String[] ch = str.toLowerCase().split("");
@@ -37,22 +38,24 @@ public class Q1_NumberOfDuplicatedLetters {
         return newString.length();
     }
 
-
-    public static int getNumber3(String str) {
-        str = str.toLowerCase();
-        String temp = "";
-        String output = "";
-        for (Character ch : str.toCharArray()) {
-            if (!temp.contains(ch + "")) {
-                temp += ch;
-            } else if (!output.contains(ch + "")) {
-                output += ch;
+    public static int getNumber2(String str) {
+        String[] ch = str.toLowerCase().split("");
+        HashSet<String> duplicatedChars = new HashSet<>();
+        for (String each : ch) {    //compare each
+            int counter = 0;
+            for (String result : ch) {
+                if (result.equals(each)) {
+                    counter++;
+                }
+            }
+            if (counter > 1) {
+                duplicatedChars.add(each);
             }
         }
-        return output.length();
+        return duplicatedChars.size();
     }
 
-    public static int getNumber2(String str) {
+    public static int getNumber3(String str) {
         str = str.toLowerCase();
         Map<Character, Integer> map = new HashMap<>();
         for (Character ch : str.toCharArray()) {
@@ -65,6 +68,20 @@ public class Q1_NumberOfDuplicatedLetters {
         }
         map.entrySet().removeIf(e -> e.getValue() == 1);
         return map.size();
+    }
+
+    public static int getNumber4(String str) {
+        str = str.toLowerCase();
+        String temp = "";
+        String output = "";
+        for (Character ch : str.toCharArray()) {
+            if (!temp.contains(ch + "")) {
+                temp += ch;
+            } else if (!output.contains(ch + "")) {
+                output += ch;
+            }
+        }
+        return output.length();
     }
 
     public static void main(String[] args) {
