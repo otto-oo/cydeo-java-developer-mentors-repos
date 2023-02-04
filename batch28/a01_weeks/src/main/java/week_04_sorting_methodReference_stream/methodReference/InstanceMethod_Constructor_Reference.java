@@ -35,11 +35,11 @@ class Test {
 
         System.out.println("instance method reference example: ");
         Message msg = new Message();
-        Printable printable2 = msg::getMessage;
+        Printable printable2 = msg::getMessage;                         // same
         printable2.printMessage();
 
         System.out.println("instance method reference example2: ");
-        Printable printable3 = new Message()::getMessage;
+        Printable printable3 = new Message()::getMessage;               // same
         printable3.printMessage();
 
         System.out.println("constructor reference example: ");

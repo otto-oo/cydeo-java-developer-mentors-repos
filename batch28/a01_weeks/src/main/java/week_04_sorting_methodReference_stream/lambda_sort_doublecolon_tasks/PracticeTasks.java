@@ -2,11 +2,14 @@ package week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
-import static lambda_sort_doublecolon_tasks.DataGenerator.*;
-import static lambda_sort_doublecolon_tasks.Service.getAllEmployees;
+import static week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.DataGenerator.*;
+import static week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.Service.filter;
+import static week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.Service.getAllEmployees;
 
-public class MeetingPractice {
+
+public class PracticeTasks {
     public static void main(String[] args) {
         createAllAddresses();
         createAllCompanies();
@@ -17,14 +20,14 @@ public class MeetingPractice {
 
         //EXAMPLE
         //       System.out.println("*** get all employees if their Id number is odd");
-//        List<Employee> list0 = filter(getAllEmployees(), employee -> employee.getId() % 2 != 0);
-//        list0.forEach(System.out::println);
+        List<Employee> list0 = filter(getAllEmployees(), employee -> employee.getId() % 2 != 0);
+        list0.forEach(System.out::println);
 
-//       getAllEmployees().forEach(employee -> System.out.println(employee.getId() % 2 == 0));
-//
-//        getAllEmployees().stream()
-//                .filter(employee -> employee.getId() % 2 != 0)
-//                .forEach(System.out::println);
+       getAllEmployees().forEach(employee -> System.out.println(employee.getId() % 2 == 0));
+
+        getAllEmployees().stream()
+                .filter(employee -> employee.getId() % 2 != 0)
+                .forEach(System.out::println);
 
 
         //System.out.println("*** get all employees if their Id number is even");

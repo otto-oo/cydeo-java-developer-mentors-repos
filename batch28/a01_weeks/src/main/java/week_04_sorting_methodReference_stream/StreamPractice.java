@@ -34,7 +34,7 @@ class StreamPractice {
 
         //collect() & Collectors Utility Class
 //        collectors_basics();
-//        collectors_toMap_partitioningBy_groupingBy();
+        collectors_toMap_partitioningBy_groupingBy();
 //        mapToInt_collectors_summingInt();
 //        count_collectors_counting();
 //        collectors_joining_String_join();
@@ -44,9 +44,9 @@ class StreamPractice {
         employees = Arrays.asList(
                 new Employee("Henry", 45,
                         Arrays.asList("Mike j.", "Anna", "Tim")),
-                new Employee("Michael", 29,
+                new Employee("Mike", 29,
                         Arrays.asList("Sue", "Tim")),
-                new Employee("Michael", 15,
+                new Employee("Mike", 15,
                         Arrays.asList("John", "Tim")),
                 new Employee("Garry", 50,
                         Arrays.asList("Mich", "Sharon")));

@@ -6,7 +6,7 @@ import week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.Empl
 
 import java.util.Comparator;
 
-import static week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.solutions.Service.*;
+import static week_04_sorting_methodReference_stream.lambda_sort_doublecolon_tasks.solutions.Service.getAllEmployees;
 
 
 public class MeetingPractice_Solutions {
