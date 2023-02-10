@@ -18,6 +18,7 @@ public class Q3_FirstUniqueCharacter {
     public static void main(String[] args) {
         System.out.println(solutionWithStream("success"));
         System.out.println(solutionWithStream("successue") == ' ');
+        System.out.println(solutionWithStream(""));
         System.out.println(solutionWithStream(null));
     }
 

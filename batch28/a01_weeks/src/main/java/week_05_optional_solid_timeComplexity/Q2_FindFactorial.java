@@ -12,7 +12,9 @@ public class Q2_FindFactorial {
 
     public static void main(String[] args) {
         System.out.println(solutionWithStream2(5));
+        System.out.println(solutionWithStream2(1));
         System.out.println(solutionWithStream2(0));
+        System.out.println(solutionWithStream2(-2));
     }
 
     public static int solutionWithFor(int n) {
@@ -40,7 +42,7 @@ public class Q2_FindFactorial {
     public static int solutionWithStream3(int n) {
         if (n < 0) throw new IllegalArgumentException("input should be positive number or zero");
         return IntStream.range(1, n + 1)//returns IntStream
-                        .reduce(1, (x, y) -> x * y); //Performs a reduction on the elements
+                .reduce(1, (x, y) -> x * y); //Performs a reduction on the elements
         // of this stream, using an associative accumulation function
     }
 

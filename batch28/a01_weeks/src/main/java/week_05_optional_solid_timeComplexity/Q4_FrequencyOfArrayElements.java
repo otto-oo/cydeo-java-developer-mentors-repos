@@ -22,6 +22,7 @@ public class Q4_FrequencyOfArrayElements {
         String[] strings2 = {"Apple", "Banana", null, "Cherry", "Apple"};
         System.out.println(solutionWithStream1(strings));
         System.out.println(solutionWithStream1(strings2));
+        System.out.println(solutionWithStream1(new String[1]));
         System.out.println(solutionWithStream1(new String[0]));
         System.out.println(solutionWithStream1(null));
     }

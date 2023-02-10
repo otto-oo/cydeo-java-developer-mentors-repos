@@ -1,7 +1,6 @@
 package week_05_optional_solid_timeComplexity;
 
 import java.util.Arrays;
-import java.util.OptionalInt;
 
 public class Q1_FindMaxFromArray {
      /*
@@ -12,9 +11,14 @@ public class Q1_FindMaxFromArray {
     public static void main(String[] args) {
         int[] array = {6, 8, 3, 5, 1, 9};
         System.out.println(maxValueWithStream(array));
+        System.out.println(maxValueWithStream(new int[1]));
+        System.out.println(maxValueWithStream(new int[0]));
+        System.out.println(maxValueWithStream(null));
     }
 
     public static int maxValue(int[] array) {
+        if (array == null || array.length == 0)
+            throw new IllegalArgumentException("input must contain int array with at least one element");
         int max = Integer.MIN_VALUE;
         for (int each : array) {
             if (each > max) {
@@ -25,11 +29,9 @@ public class Q1_FindMaxFromArray {
     }
 
     public static int maxValueWithStream(int[] array) {
+        if (array == null || array.length == 0)
+            throw new IllegalArgumentException("input must contain int array with at least one element");
         return Arrays.stream(array).max().getAsInt();
     }
 
-    public static int maxValueWithStream2(int[] array) {
-        OptionalInt max = Arrays.stream(array).max();
-        return max.orElseThrow( ()-> new IllegalArgumentException("input must contain int array with at least one element"));
-    }
 }
