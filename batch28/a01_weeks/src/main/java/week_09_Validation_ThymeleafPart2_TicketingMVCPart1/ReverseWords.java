@@ -1,4 +1,4 @@
-package week_09;
+package week_09_Validation_ThymeleafPart2_TicketingMVCPart1;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package week_07;
+package week_07_SpringCore_SpringBoot;
 
 import java.util.Arrays;
 import java.util.HashMap;

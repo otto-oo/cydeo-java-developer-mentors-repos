@@ -1,8 +1,8 @@
-package week_06_UI_SchoolProjectDemoRetro_TwoPointer;
+package week_06_TwoPointer_SchoolProjectDemoRetro_UI_Practice;
 
 public class ValidPalindrome {
     /*
-    Valid Palindrome
+    125. Valid Palindrome
     Determine whether a string is a palindrome, ignoring non-alphanumeric characters and case.
     Please, use two pointer strategy.
     (A string is said to be palindrome after converting all uppercase letters into lowercase letters and removing all non-alphanumeric it reads the same backward as forward. )
@@ -11,6 +11,12 @@ public class ValidPalindrome {
     Input: Do geese see God?            Output: True
     Input: Was it a car or a cat I saw? Output: True
     Input: A brown fox jumping over     Output: False
+
+    Constraints:
+•	1 <= s.length <= 2 * 105
+•	s consists only of printable ASCII characters.
+
+    https://leetcode.com/problems/valid-palindrome/
      */
 
     public static void main(String[] args) {
@@ -23,8 +29,32 @@ public class ValidPalindrome {
         System.out.println(stringAndForLoop(null));
     }
 
-    // time complexity : O(n)
+    // brute force
+    // Time complexity : O (n)
+    // Space complexity : O (n)
+    public static boolean stringAndForLoop(String str) {
+        if (str == null || str.isBlank()) {
+            return true;
+        }
+        str = str.toLowerCase();        // O (n)
+        String filtered = "";
+        String reverseStr = "";
+        for (int i = 0; i < str.length(); i++) {    // O (n)
+            char ch = str.charAt(i);
+            if ((ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9')) {
+                filtered = filtered + ch;
+                reverseStr = ch + reverseStr;
+            }
+        }
+//        for (int i = filtered.length() - 1; i >= 0; i--) {
+//            reverseStr += "" + filtered.charAt(i);
+//        }
+        return reverseStr.equals(filtered); // O (n)
+    }
+
     // two pointer
+    // time complexity : O(n)
+    // Space complexity : O (n)
     static boolean twoPointerStrBuilder(String str) {
         if (str == null || str.isBlank()) {
             return true;
@@ -37,7 +67,7 @@ public class ValidPalindrome {
             }
         }
         int left = 0, right = sb.length() - 1;
-        while (left < right) {                          // O(n)
+        while (left < right) {                          // O(n/2) -> O(n)
             if (sb.charAt(left) == sb.charAt(right)) {
                 left++;
                 right--;
@@ -65,29 +95,19 @@ public class ValidPalindrome {
         return true;
     }
 
-    // brute force
-    // O (n)
-    public static boolean stringAndForLoop(String str) {
+    // time complexity : O(n)
+    // Space complexity : O (n)
+    public static boolean strBuilderReverseMethod(String str) {
         if (str == null || str.isBlank()) {
             return true;
         }
-        str = str.toLowerCase();        // O (n)
-        String filtered = "";
-        String reverseStr = "";
-        for (int i = 0; i < str.length(); i++) {    // O (n)
-            char ch = str.charAt(i);
-            if ( (ch >='a' && ch <= 'z') || (ch >='0' && ch <= '9')){
-                filtered = filtered + ch;
-                reverseStr = ch + reverseStr;
-            }
-        }
-
-//        for (int i = filtered.length() - 1; i >= 0; i--) {
-//            reverseStr += "" + filtered.charAt(i);
-//        }
-        return reverseStr.equals(filtered); // O (n)
+        str = str.toLowerCase().replaceAll("[^a-z0-9]", "");
+        return new StringBuilder(str).reverse().toString().equals(str);
     }
 
+    // other solutions
+    // time complexity : O(n)
+    // Space complexity : O (n)
     public static boolean twoPointerRegexForLoop(String str) {
         if (str == null || str.isBlank()) {
             return true;
@@ -100,14 +120,6 @@ public class ValidPalindrome {
             }
         }
         return true;
-    }
-
-    public static boolean strBuilderReverseMethod(String str) {
-        if (str == null || str.isBlank()) {
-            return true;
-        }
-        str = str.toLowerCase().replaceAll("[^a-z0-9]", "");
-        return new StringBuilder(str).reverse().toString().equals(str);
     }
 
 }

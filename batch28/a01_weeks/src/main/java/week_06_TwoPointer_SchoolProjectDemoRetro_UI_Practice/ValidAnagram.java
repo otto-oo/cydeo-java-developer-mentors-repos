@@ -1,4 +1,4 @@
-package week_06_UI_SchoolProjectDemoRetro_TwoPointer;
+package week_06_TwoPointer_SchoolProjectDemoRetro_UI_Practice;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -26,13 +26,10 @@ public class ValidAnagram {
     https://leetcode.com/problems/valid-anagram/
      */
 
-    public int lengthOfLastWord(String s) {
-        String[] strs= s.trim().split(" ");
-        return strs[strs.length-1].length();
-    }
 
-    // TC : O(n log n) SC : O(n)
+    // TC (time complexity) : O(n log n) SC (space complexity) : O(n)
     public boolean withArraySort(String s, String t) {
+        if (s.length() != t.length()) return false;
         char[] ch1 = s.toCharArray();    // SC : O(n)
         char[] ch2 = t.toCharArray();    // SC : O(n)
         Arrays.sort(ch1);             // TC : O(n log n)
