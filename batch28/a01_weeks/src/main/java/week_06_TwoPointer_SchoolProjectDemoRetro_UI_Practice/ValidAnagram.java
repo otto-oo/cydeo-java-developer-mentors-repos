@@ -3,6 +3,7 @@ package week_06_TwoPointer_SchoolProjectDemoRetro_UI_Practice;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class ValidAnagram {
     /*
@@ -25,7 +26,9 @@ public class ValidAnagram {
     Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
     https://leetcode.com/problems/valid-anagram/
      */
+    public static void main(String[] args) {
 
+    }
 
     // TC (time complexity) : O(n log n) SC (space complexity) : O(n)
     public boolean withArraySort(String s, String t) {

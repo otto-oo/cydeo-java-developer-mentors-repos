@@ -20,13 +20,13 @@ public class ValidPalindrome {
      */
 
     public static void main(String[] args) {
-        System.out.println(stringAndForLoop("Do geese see God?"));      // true
-        System.out.println(stringAndForLoop("Was it a car or a cat I saw?"));   // true
-        System.out.println(stringAndForLoop("A man, a plan, a canal: Panama")); // true
-        System.out.println(stringAndForLoop("A brown fox jumping over"));   // false
-        System.out.println(stringAndForLoop(""));   // true
-        System.out.println(stringAndForLoop("   "));   // true
-        System.out.println(stringAndForLoop(null));
+        System.out.println(strBuilderReverseMethod("Do geese see God?"));      // true
+//        System.out.println(stringAndForLoop("Was it a car or a cat I saw?"));   // true
+//        System.out.println(stringAndForLoop("A man, a plan, a canal: Panama")); // true
+//        System.out.println(stringAndForLoop("A brown fox jumping over"));   // false
+//        System.out.println(stringAndForLoop(""));   // true
+//        System.out.println(stringAndForLoop("   "));   // true
+//        System.out.println(stringAndForLoop(null));
     }
 
     // brute force
@@ -78,6 +78,24 @@ public class ValidPalindrome {
     }
 
     // time complexity : O(n)
+    // Space complexity : O (n)
+    public static boolean strBuilderReverseMethod(String str) {
+        if (str == null || str.isBlank()) {
+            return true;
+        }
+        str = str.toLowerCase();                // O(n)
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {    // O(n)
+            if (Character.isLetterOrDigit(str.charAt(i))) {
+                sb.append(str.charAt(i));
+            }
+        }
+        String filtered = sb.toString();
+        String reversed = sb.reverse().toString();
+        return filtered.equals(reversed);
+    }
+
+    // time complexity : O(n)
     // two pointer
     static boolean twoPointerRegex(String str) {
         if (str == null || str.isBlank()) {
@@ -95,15 +113,6 @@ public class ValidPalindrome {
         return true;
     }
 
-    // time complexity : O(n)
-    // Space complexity : O (n)
-    public static boolean strBuilderReverseMethod(String str) {
-        if (str == null || str.isBlank()) {
-            return true;
-        }
-        str = str.toLowerCase().replaceAll("[^a-z0-9]", "");
-        return new StringBuilder(str).reverse().toString().equals(str);
-    }
 
     // other solutions
     // time complexity : O(n)
