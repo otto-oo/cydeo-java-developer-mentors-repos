@@ -1,8 +1,7 @@
-package week_09_Validation_ThymeleafPart2_TicketingMVCPart1;
+package week_13_ORMpart2;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Stack;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /*
 leetcode medium
@@ -37,12 +36,36 @@ Example: Let the input string be “i like this program very much”.
 The function should change the string to “much very program this like i”
  */
 public class ReverseWords {
-    static String reverseWord(String input){
-        String [] strs = input.split(" ");
+    static String list(String input) {
+        String [] strings = input.trim().split(" +");
+        StringBuilder sb = new StringBuilder();
+        for (int i = strings.length - 1; i >= 0; i--) {
+            sb.append(strings[i]).append(" ");
+        }
+        return sb.toString().trim();
+    }
+
+    static String stringJoin(String input) {
+        String [] strings = input.trim().split(" +");
+        Arrays.sort(strings, Collections.reverseOrder());
+        System.out.println(Arrays.toString(strings));
+        return null;
+//        return Arrays.stream(strings)
+//                .
+//                .collect(Collectors.joining(" "));
+//        String str = String.join(" ", strings);
+////        for (int i = strings.length - 1; i >= 0; i--) {
+////            str.append(String.join("---", strings[i], strings[i]));
+////        }
+//        return str;
+    }
+
+    static String reverseWord(String input) {
+        String[] strs = input.split(" ");
         String result = "";
-        for (int i = strs.length-1; i>=0; i--){
-            if(!strs[i].isBlank()) {
-                result += strs[i]+ " ";
+        for (int i = strs.length - 1; i >= 0; i--) {
+            if (!strs[i].isBlank()) {
+                result += strs[i] + " ";
             }
         }
         return result.trim();
@@ -50,58 +73,52 @@ public class ReverseWords {
 
     public static String reverseWords1(String s) {
         ArrayList<String> list = new ArrayList<>();
-
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
 
-            if(ch != ' '){
+            if (ch != ' ') {
                 sb.append(ch);
-            }else{
-                if(sb.length() != 0) list.add(sb.toString());
+            } else {
+                if (sb.length() != 0) list.add(sb.toString());
                 sb = new StringBuilder();
             }
         }
-
         // for last word
-        if(sb.length() != 0) list.add(sb.toString());
-
+        if (sb.length() != 0) list.add(sb.toString());
         Collections.reverse(list);
-
         sb = new StringBuilder();
-
-        for(int i = 0; i < list.size(); i++){
+        for (int i = 0; i < list.size(); i++) {
             sb.append(list.get(i));
-            if(i != list.size() - 1) sb.append(" ");
+            if (i != list.size() - 1) sb.append(" ");
         }
-
         return sb.toString();
     }
 
     public static String reverseWords(String s) {
-        String [] tokens  = s.trim().split(" ");
+        String[] tokens = s.trim().split(" ");
         Stack<String> stack = new Stack<>();
-        for(String t: tokens){
-            if(t!=""){
+        for (String t : tokens) {
+            if (t != "") {
                 stack.push(t);
             }
         }
         StringBuilder sb = new StringBuilder();
-        while(stack.size()>0){
+        while (stack.size() > 0) {
             String ss = stack.pop();
-            if(stack.size()==0){
+            if (stack.size() == 0) {
                 sb.append(ss);
-            }else{
+            } else {
                 sb.append(ss).append(" ");
             }
-
         }
-        return  sb.toString();
+        return sb.toString();
     }
 
     public static void main(String[] args) {
-      //  String s = "i like this program very much ";
-        String s = "a good   example";
-        System.out.println(reverseWords(s));
+        //  String s = "i like this program very much ";
+//        String s = "a good   example";
+        String s = "the sky is blue";
+        System.out.println(stringJoin(s));
     }
 }

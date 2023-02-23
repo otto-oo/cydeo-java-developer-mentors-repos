@@ -2,8 +2,6 @@ package week_09_Validation_ThymeleafPart2_TicketingMVCPart1;
 
 public class LengthOfLastWord {
 
-
-
     public static void main(String[] args) {
         System.out.println(lengthOfLastWord2("Hello world we are aliens   "));
     }

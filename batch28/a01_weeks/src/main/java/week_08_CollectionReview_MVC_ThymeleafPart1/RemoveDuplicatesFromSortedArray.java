@@ -41,6 +41,7 @@ Constraints:
     -100 <= nums[i] <= 100
     nums is sorted in non-decreasing order.
 
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/
      */
 
     public int removeDuplicates(int[] nums) {
