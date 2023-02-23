@@ -1,4 +1,4 @@
-package week_06_TwoPointer_SchoolProjectDemoRetro_UI_Practice;
+package week_06_TwoPointer_StringBuilderBuffer_Regex_UI;
 
 import java.util.ArrayList;
 import java.util.Arrays;
