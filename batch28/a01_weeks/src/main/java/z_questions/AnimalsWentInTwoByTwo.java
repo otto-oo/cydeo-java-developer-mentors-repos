@@ -1,4 +1,4 @@
-package week_08_CollectionReview_MVC_ThymeleafPart1;
+package z_questions;
 
 import java.util.*;
 

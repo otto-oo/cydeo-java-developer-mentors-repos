@@ -1,4 +1,4 @@
-package z_questions;
+package week_08_CollectionReview_MVC_ThymeleafPart1;
 
 public class RemoveDuplicatesFromSortedArray {
     /*

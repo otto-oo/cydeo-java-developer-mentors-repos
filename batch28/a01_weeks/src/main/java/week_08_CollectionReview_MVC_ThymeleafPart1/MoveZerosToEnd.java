@@ -21,6 +21,19 @@ public class MoveZerosToEnd {
         System.out.println(Arrays.toString(arr));
     }
 
+    static void oneLoopOneIf(int[] nums) {
+        if (nums == null) return;
+        int slow = 0;
+        for (int fast = 0; fast < nums.length; fast++) {
+            if (nums[fast] != 0) {
+                int temp = nums[fast];
+                nums[fast] = nums[slow];
+                nums[slow] = temp;
+                slow++;
+            }
+        }
+    }
+
     static void moveZerosToEnd(int[] arr) {
         if (arr == null) return;
         int fast = 0, slow = 0;
@@ -35,19 +48,6 @@ public class MoveZerosToEnd {
             if (arr[slow] == 0 && arr[fast] != 0) {
                 arr[slow] = arr[fast];
                 arr[fast] = 0;
-            }
-        }
-    }
-
-    static void oneLoopOneIf(int[] nums) {
-        if (nums == null) return;
-        int slow = 0;
-        for (int fast = 0; fast < nums.length; fast++) {
-            if (nums[fast] != 0) {
-                int temp = nums[fast];
-                nums[fast] = nums[slow];
-                nums[slow] = temp;
-                slow++;
             }
         }
     }
