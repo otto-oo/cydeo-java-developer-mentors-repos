@@ -28,12 +28,12 @@ Optional additional task: Try to return original indices of the pair numbers.
 //        System.out.println(Arrays.toString(nums));
     }
 
-    //    TC: O (n2) SC: O(1)
-    public static int[] findThePairNumbersWithNestedLoop(int[] distinct, int targetSum) {
-        for (int i = 0; i < distinct.length; i++) {
-            for (int j = i + 1; j < distinct.length; j++) {
-                if (distinct[i] + distinct[j] == targetSum) {
-                    return new int[]{distinct[i], distinct[j]};
+    //    TC: O (n^2) SC: O(1)
+    public static int[] findThePairNumbersWithNestedLoop(int[] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] == target) {
+                    return new int[]{arr[i], arr[j]};
                 }
             }
         }
@@ -41,15 +41,15 @@ Optional additional task: Try to return original indices of the pair numbers.
     }
 
     //    TC: O (n) SC: O(n)
-    public static int[] findThePairNumbersWithHashSet(int[] distinct, int targetSum) {
+    public static int[] findThePairNumbersWithHashSet(int[] arr, int target) {
         Set<Integer> set = new HashSet<>();
-        set.add(distinct[0]);
-        for (int i = 1; i < distinct.length; i++) {
-            int key = targetSum - distinct[i];
-            if (set.contains(key)) {
-                return new int[]{key, distinct[i]};
+        set.add(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            int neededPair = target - arr[i];
+            if (set.contains(neededPair)) {
+                return new int[]{neededPair, arr[i]};
             } else {
-                set.add(distinct[i]);
+                set.add(arr[i]);
             }
         }
         return new int[0];
@@ -58,9 +58,9 @@ Optional additional task: Try to return original indices of the pair numbers.
     //    TC: O (n log n) SC: O(1)
     public static int[] findThePairNumbersWithTwoPointer(int[] arr, int target) {
         int left = 0, right = arr.length - 1;
-        Arrays.sort(arr);  // nlog(n)
+        Arrays.sort(arr);  // n log(n)
 
-        while (left < right) {  //n
+        while (left < right) {  // n
             if (arr[left] + arr[right] == target)
                 return new int[]{arr[left], arr[right]};
             else if (arr[left] + arr[right] < target) {
@@ -71,11 +71,11 @@ Optional additional task: Try to return original indices of the pair numbers.
         return new int[0];
     }
 
-    //    TC: O (n2) SC: O(1)
-    public static int[] findIndicesWithNestedLoop(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[i] + nums[j] == target) {
+    //    TC: O (n^2) SC: O(1)
+    public static int[] findIndicesWithNestedLoop(int[] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] == target) {
                     return new int[]{i, j};
                 }
             }
@@ -83,19 +83,42 @@ Optional additional task: Try to return original indices of the pair numbers.
         return new int[0];
     }
 
-    //    TC: O (n) SC: O(n)
-    public static int[] findIndicesWithMap(int[] nums, int target) {
+    //    TC: O (n log n) SC: O(n)
+    public static int[] findIndicesWithTwoPointerAndHashMap(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int neededPair = target - nums[i];
+        for (int i = 0; i < arr.length; i++) {  // n
+            map.put(arr[i], i);
+        }
+        Arrays.sort(arr);  // n log(n)
+
+        while (left < right) {  // n
+            if (arr[left] + arr[right] == target) {
+                return new int[]{map.get(arr[left]), map.get(arr[right])};
+            } else if (arr[left] + arr[right] < target) {
+                left++;
+            } else
+                right--;
+        }
+        return new int[0];
+    }
+
+    //    TC: O (n) SC: O(n)
+    public static int[] findIndicesWithMap(int[] arr, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            int neededPair = target - arr[i];
             if (!map.containsKey(neededPair)) {
-                map.put(nums[i], i);
+                map.put(arr[i], i);
             } else {
                 return new int[]{map.get(neededPair), i};
             }
         }
         return new int[0];
     }
+
+
+    // other solutions
 
     //    TC: O (n log n) SC: O(n)
     public static int[] findIndicesWithTwoPointer(int[] arr, int target) {
@@ -119,25 +142,6 @@ Optional additional task: Try to return original indices of the pair numbers.
                 return new int[]{ind1, ind2};
             } else if (temp[left] + temp[right] < target) left++;
             else right--;
-        }
-        return new int[0];
-    }
-
-    public static int[] findIndicesWithTwoPointerAndHashMap(int[] arr, int target) {
-        int left = 0, right = arr.length - 1;
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < arr.length; i++) {  // n
-            map.put(arr[i], i);
-        }
-        Arrays.sort(arr);  // n log(n)
-
-        while (left < right) {  // n
-            if (arr[left] + arr[right] == target) {
-                return new int[]{map.get(arr[left]), map.get(arr[right])};
-            } else if (arr[left] + arr[right] < target) {
-                left++;
-            } else
-                right--;
         }
         return new int[0];
     }

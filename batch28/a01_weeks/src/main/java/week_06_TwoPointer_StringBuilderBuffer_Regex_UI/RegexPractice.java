@@ -9,7 +9,8 @@ import java.util.regex.Pattern;
 public class RegexPractice {
     public static void main(String[] args) {
 //        howToRemoveUnwantedChars();
-        matchersTest();
+//        matchersTest();
+        decimalOrFloatNumber();
 //        setOfCharacters();
     }
 
@@ -160,6 +161,41 @@ The third match is zero-length empty String.
         System.out.println(runTest("\\bdog\\B", "snoop dogg is a rapper"));   // 1    text contains this string: dog
         // enable matching regardless of case   Pattern.CASE_INSENSITIVE
         System.out.println(runTest("(?i)dog", "This is a Dog"));   // 1    text contains this string: dog
+    }
+
+    static void decimalOrFloatNumber(){
+        //regular expression for validating decimal/float numbers
+        System.out.println(runTest( "^[+-]?\\d+(\\.\\d+)?$", "+1.02")); // 1
+        System.out.println(runTest( "^[+-]?\\d+(\\.\\d+)?$", "+1.")); // 0
+        System.out.println(runTest( "^[+-]?\\d+(\\.\\d+)?$", "1.")); // 0
+        System.out.println(runTest( "^([+-]?[0-9]+([.][0-9]+)?)$", "1.")); // 0
+        System.out.println(runTest( "^([+-]?[0-9]+([.][0-9]+)?)$", "-1.0")); // 1
+        System.out.println(runTest( "\\A([+-]?[0-9]+([.][0-9]+)?)\\z", "-1.0")); // 1
+
+        System.out.println(runTest("^([0-9]*[1-9][0-9]*(\\.[0-9]+)?|[0]*\\.[0-9]*[1-9][0-9]*)$", "1.2"));
+
+        // https://stackoverflow.com/questions/10256061/regular-expression-for-finding-decimal-float-numbers :
+        // a decimal with no leading zero (.14 instead of 0.14) or without a trailing fractional part (3. instead of 3.0) :
+        System.out.println(runTest( "^((\\+|-)?(0|([1-9][0-9]*))(\\.[0-9]+)?)$", "-1.0")); // 1
+
+        //https://www.regular-expressions.info/floatingpoint.html
+    }
+
+
+    static void formattedOrLimitedNumbers(){
+        // start & end with (), no spaces, should be two numbers seperated by , each one can be a decimal or float number:
+        System.out.println(runTest("([+-]?[0-9]+([.][0-9]+)?)", "(+1,5.0)"));   // 1
+        // limited to between -90 and +90 both inclusive
+
+        // decimal/float numbers with up to four decimal places and a range of 0 to 59 for the integer part:
+//        ([0-9]|[0-5][0-9])\.[0-9]{1,4}
+
+
+        // decimals with or without leading zeros
+        System.out.println(runTest("^-?0*((90(\\.0*)?)|([1-8]?\\d(\\.\\d*)?))$", "90.0"));
+
+
+        // https://stackoverflow.com/questions/22130429/using-regular-expressions-to-validate-a-numeric-range
     }
 
     static void emailCheck() {
