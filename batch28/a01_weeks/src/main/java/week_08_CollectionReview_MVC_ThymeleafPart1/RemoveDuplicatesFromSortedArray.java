@@ -1,5 +1,9 @@
 package week_08_CollectionReview_MVC_ThymeleafPart1;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class RemoveDuplicatesFromSortedArray {
     /*
     26. Remove Duplicates from Sorted Array
@@ -43,8 +47,57 @@ Constraints:
 
 https://leetcode.com/problems/remove-duplicates-from-sorted-array/
      */
+    public static void main(String[] args) {
+//        int[] nums = {1, 1, 2};     // 2
+        int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4}; // 5
+        System.out.println(bruteForce(nums));
+        System.out.println(Arrays.toString(nums));
 
-    public int removeDuplicates(int[] nums) {
+    }
+
+    // TC : O (n) SC : O (n)
+    public static int bruteForce(int[] nums) {
+        if (nums.length < 2) return nums.length;
+        List<Integer> list = new ArrayList<>();
+        list.add(nums[0]);
+        int i = 0;
+        for (int each : nums) {
+            if (list.get(i++) != each){
+                list.add(each);
+            }
+        }
+        for (int j = 0; j < list.size(); j++) {
+            nums[j] = list.get(j);
+        }
+        return list.size();
+//        int[] temp = Arrays.stream(nums).distinct().toArray();
+//        for (int i = 0; i < temp.length; i++) {
+//            nums[i] = temp[i];
+//        }
+//        nums = Arrays.copyOfRange(temp, 0, temp.length);      // not works since Java is pass-by-value
+//        System.arraycopy(temp, 0, nums, 0, temp.length);
+//        return temp.length;
+    }
+
+    // TC : O (n) SC : O (1)
+    public static int twoPointerForLoop(int[] nums) {
+        if (nums.length < 2) return nums.length;
+        int slow = 0;
+        for (int fast = 1; fast < nums.length; fast++) {
+            if (nums[slow] != nums[fast]) {
+                slow++;
+                nums[slow] = nums[fast];
+            }
+        }
+        return ++slow; // to find the length of result array
+    }
+
+
+    // other solutions
+
+    // TC : O (n) SC : O (1)
+    public static int twoPointerWhileLoop(int[] nums) {
+        if (nums.length < 2) return nums.length;
         int slow = 0, fast = 1;
         while (fast < nums.length) {
             if (nums[slow] == nums[fast]) {
@@ -58,7 +111,9 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-array/
         return ++slow;
     }
 
-    public int removeDuplicates2(int[] nums) {
+    // TC : O (n) SC : O (1)
+    public static int twoPointerWhileLoop2(int[] nums) {
+        if (nums.length < 2) return nums.length;
         int slow = 0, fast = 1;
         while (fast < nums.length) {
             if (nums[slow] != nums[fast]) {

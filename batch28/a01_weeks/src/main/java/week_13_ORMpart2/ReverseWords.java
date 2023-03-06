@@ -36,8 +36,16 @@ Example: Let the input string be “i like this program very much”.
 The function should change the string to “much very program this like i”
  */
 public class ReverseWords {
+
+    public static void main(String[] args) {
+        //  String s = "i like this program very much ";
+//        String s = "a good   example";
+        String s = "the sky is blue";
+        System.out.println(stringJoin(s));
+    }
+
     static String list(String input) {
-        String [] strings = input.trim().split(" +");
+        String[] strings = input.trim().split(" +");
         StringBuilder sb = new StringBuilder();
         for (int i = strings.length - 1; i >= 0; i--) {
             sb.append(strings[i]).append(" ");
@@ -113,12 +121,5 @@ public class ReverseWords {
             }
         }
         return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        //  String s = "i like this program very much ";
-//        String s = "a good   example";
-        String s = "the sky is blue";
-        System.out.println(stringJoin(s));
     }
 }

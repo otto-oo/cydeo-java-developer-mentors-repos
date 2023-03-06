@@ -45,33 +45,30 @@ public class HappyNumber {
 
     }
 
-    public static boolean solutionWithNestedLoop(int n) {
-        // it becomes infinite loop if n = 4
-        while (n != 1 && n != 4) {
-            int eachDigit, sum = 0;
-
-            while (n > 0) {
-                eachDigit = n % 10;
-                sum = sum + (eachDigit * eachDigit);
-                n = n / 10;
-            }
-            n = sum;
-        }
-        return n == 1;
-    }
 
     /*
-    A number will not be a Happy Number when it makes a loop in its sequence that is it touches a number in sequence
-    which already been touched. So to check whether a number is happy or not, we can keep a set, if the same number
+    A number will not be a Happy Number when it makes a loop in its sequence which already been touched.
+    So to check whether a number is happy or not, we can keep a set, if the same number
     occurs again we flag result as not happy.
+     */
+
+    // TC : hard to guess O(log n)  SC: O(log n))
+    /*
+ TC explanation:   https://stackoverflow.com/questions/58977656/how-to-understand-time-complexity-of-happy-number-problem-solution-from-leetcode
+space complexity: for simplicity of let's assume our input can only take the form (10, 100, 1000, ..., 10^d) where d+1 is the number of digits.
+n = 10^d
+take log both sides
+log(n) = d
+number of digits = log(n) + 1
+We usually ignore constants when we talk about big O and therefore the answer is O(log(n))
      */
     static boolean solutionWithSet(int n) {
         Set<Integer> seenSet = new HashSet<>();
-        while (seenSet.add(n)) {
+        while (seenSet.add(n)) {     // TC : hard to guess,
             if (n == 1)
                 return true;
             int sum = 0;
-            while (n != 0) {
+            while (n != 0) {        // TC :  O(log(n))
                 sum += Math.pow(n % 10, 2);
                 n = n / 10;
             }
@@ -87,16 +84,17 @@ public class HappyNumber {
     // then the given number is Happy Number otherwise not.
 
     static boolean twoPointer(int n) {
-
         int slow = n;
         int fast = n;
 
         do {
             slow = findSquareSum(slow);
-            fast = findSquareSum(findSquareSum(fast));
+            fast = findSquareSum(fast);
+            fast = findSquareSum(fast);
+            if (fast == 1) return true;
         } while (slow != fast);
 
-        return slow == 1;
+        return false;
     }
 
     static int findSquareSum(int n) {
@@ -107,6 +105,24 @@ public class HappyNumber {
             n /= 10;
         }
         return squareSum;
+    }
+
+
+    // other solutions
+
+    public static boolean solutionWithNestedLoop(int n) {
+        // it becomes infinite loop if n = 4
+        while (n != 1 && n != 4) {
+            int eachDigit, sum = 0;
+
+            while (n > 0) {
+                eachDigit = n % 10;
+                sum = sum + (eachDigit * eachDigit);
+                n = n / 10;
+            }
+            n = sum;
+        }
+        return n == 1;
     }
 
     static boolean solutionWithRecursion(int n) {

@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 @Controller
-@RequestMapping("/user")
+@RequestMapping({"/user", "/"})
 public class UserController {
 
     private final UserService userService;
@@ -21,7 +24,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/register")
+    @GetMapping({"/register", "/"})
     public String registerUser(Model model) {
 
         model.addAttribute("users", userService.getUsers());
