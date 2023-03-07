@@ -62,7 +62,8 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-array/
         list.add(nums[0]);
         int i = 0;
         for (int each : nums) {
-            if (list.get(i++) != each){
+            if (list.get(i) != each){
+                i++;
                 list.add(each);
             }
         }

@@ -85,6 +85,24 @@ Please, test your solution here: https://leetcode.com/problems/move-zeroes/
     // other solutions
 
     // TC : O (n) SC : O (1)
+    public void moveZeroes(int[] nums) {
+        if(nums == null || nums.length == 0) {
+            return;
+        }
+        int index = 0;
+        for(int num : nums) {
+            if(num != 0) {
+                nums[index] = num;
+                index++;
+            }
+        }
+        while(index < nums.length) {
+            nums[index] = 0;
+            index++;
+        }
+    }
+
+    // TC : O (n) SC : O (1)
     static void moveZerosToEnd(int[] nums) {
         if (nums.length < 2) return;
         int fast = 0, slow = 0;
