@@ -14,7 +14,7 @@ public class HappyNumber {
             Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
             Those numbers for which this process ends in 1 are happy.
 
-        EXAMPLE 1:
+        Example 1:
         Input: n = 19
         Output: True
         Explanation:
@@ -25,12 +25,19 @@ public class HappyNumber {
             1^2 + 0^2 + 0^2 = 1
             As we reached to 1, 19 is a Happy Number.
 
-        EXAMPLE 2:
+        Example 2:
         Input: n = 20
         Output: False
 
+        Constraints:
+        1 <= n <= 2^31 - 1
+
+
         leetcode link : https://leetcode.com/problems/happy-number/
+
+        For more explanation about happy number : https://en.wikipedia.org/wiki/Happy_number
      */
+
 
     public static void main(String[] args) {
         int[] input = {4,       19,     20,     2,      365,    256};
