@@ -50,7 +50,15 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-array/
     public static void main(String[] args) {
 //        int[] nums = {1, 1, 2};     // 2
         int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4}; // 5
+        System.out.println(removeDuplicates(nums));
+
+        nums = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}; // 5
+        System.out.println(twoPointerForLoop(nums));
+
+        nums = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}; // 5
         System.out.println(bruteForce(nums));
+
+        nums = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}; // 5
         System.out.println(Arrays.toString(nums));
 
     }
@@ -124,5 +132,30 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-array/
             fast++;
         }
         return ++slow;
+    }
+
+    public static int removeDuplicates(int[] nums) {
+        if (nums.length < 2)
+            return 1;
+
+        int indexToBeUpdated = -1;
+        boolean matchContinues = false;
+        for (int i = 0, j =1 ; i < nums.length && j < nums.length; i++, j++) {
+            if (nums[i] == nums[j]){//slow == fast
+                if (indexToBeUpdated == -1){
+                    indexToBeUpdated = j;
+                }
+                else if (!matchContinues && nums[indexToBeUpdated] == nums[i]){
+                    matchContinues = true;
+                    indexToBeUpdated = i;
+                }
+            }
+            else if (indexToBeUpdated > -1){
+                nums[indexToBeUpdated] = nums[j];
+                indexToBeUpdated++;
+            }
+        }
+
+        return indexToBeUpdated == -1 ? nums.length : indexToBeUpdated;
     }
 }
