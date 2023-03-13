@@ -33,6 +33,8 @@ Output: false
 Explanation: There is no cycle in the linked list.
 
 Follow up: Can you solve it using O(1) (i.e. constant) memory?
+
+https://leetcode.com/problems/linked-list-cycle/
      */
 
     ListNode head;
@@ -70,7 +72,7 @@ Follow up: Can you solve it using O(1) (i.e. constant) memory?
         ListNode current = head;
         HashSet<ListNode> set = new HashSet<>();
         while (current != null) {
-            if (set.add(current)) return true;
+            if (!set.add(current)) return true;
             current = current.next;
         }
         return false;

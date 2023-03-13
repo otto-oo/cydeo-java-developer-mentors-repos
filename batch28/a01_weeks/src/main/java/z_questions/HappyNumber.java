@@ -1,4 +1,4 @@
-package week_09_Validation_ThymeleafPart2_TicketingMVCPart1;
+package z_questions;
 
 import java.util.HashSet;
 import java.util.Set;
