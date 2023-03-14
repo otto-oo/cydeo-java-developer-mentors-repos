@@ -1,9 +1,6 @@
 package week_09_Validation_ThymeleafPart2_TicketingMVCPart1;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AnimalsWentInTwoByTwo {
     /*
@@ -25,16 +22,16 @@ Input: ["goat", "goat", "rabbit", "rabbit", "rabbit", "duck", "horse", "horse", 
 Output: {horse=2, rabbit=2, goat=2}
      */
     public static void main(String[] args) {
-        System.out.println(getPairs(Arrays.asList()));  // {}
-        System.out.println(getPairs(Arrays.asList("goat")));    // {}
-        System.out.println(getPairs(Arrays.asList("dog", "goat", "dog"))); // {dog=2}
-        System.out.println(getPairs(Arrays.asList("dog", "cat", "dog", "cat", "beaver", "cat")));   // {cat=2, dog=2}
-        System.out.println(getPairs(Arrays.asList("goat", "goat", "rabbit", "rabbit", "rabbit", "duck", "horse", "horse", "swan")));
+        System.out.println(withIterator(Arrays.asList()));  // {}
+        System.out.println(withIterator(Arrays.asList("goat")));    // {}
+        System.out.println(withIterator(Arrays.asList("dog", "goat", "dog"))); // {dog=2}
+        System.out.println(withIterator(Arrays.asList("dog", "cat", "dog", "cat", "beaver", "cat")));   // {cat=2, dog=2}
+        System.out.println(withIterator(Arrays.asList("goat", "goat", "rabbit", "rabbit", "rabbit", "duck", "horse", "horse", "swan")));
         // {horse=2, rabbit=2, goat=2}
     }
 
     // TC : O (n)  SC : O (n)
-    static Map<String, Integer> getPairs(List<String> animals) {
+    static Map<String, Integer> withRemoveIf(List<String> animals) {
         Map<String, Integer> pairs = new HashMap<>();
         if (animals.size() < 2) return pairs;
         for (String animal : animals) {
@@ -44,6 +41,26 @@ Output: {horse=2, rabbit=2, goat=2}
             }
         }
         pairs.entrySet().removeIf(e -> e.getValue() == 1);
+        return pairs;
+    }
+
+    // TC : O (n)  SC : O (n)
+    static Map<String, Integer> withIterator(List<String> animals) {
+        Map<String, Integer> pairs = new HashMap<>();
+        if (animals.size() < 2) return pairs;
+        for (String animal : animals) {
+            int num = pairs.getOrDefault(animal, 0);
+            if (num < 2) {
+                pairs.put(animal, ++num);
+            }
+        }
+        Iterator<Map.Entry<String, Integer>> iterator = pairs.entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry<String, Integer> entry = iterator.next();
+            if (entry.getValue()== 1){
+                iterator.remove();
+            }
+        }
         return pairs;
     }
 
