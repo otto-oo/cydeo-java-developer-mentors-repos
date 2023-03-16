@@ -1,6 +1,6 @@
 package Intw_DSA_Qs;
 
-public class StockProblem {
+public class Q21_StockProblem {
 /*
     Given an array that represents the stock prices of consecutive months and analysis factor k
     find how many periods where stocks prices are strictly increasing , the period should be of k length

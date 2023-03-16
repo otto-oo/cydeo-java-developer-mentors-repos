@@ -1,6 +1,6 @@
 package Intw_DSA_Qs;
 
-public class HappyNumber {
+public class Q19_HappyNumber {
 
    // https://leetcode.com/problems/happy-number/
 

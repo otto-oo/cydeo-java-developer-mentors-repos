@@ -1,6 +1,6 @@
 package Intw_DSA_Qs;
 
-public class PlusOne {
+public class Q20_PlusOne {
 
   //  https://leetcode.com/problems/plus-one/
 
