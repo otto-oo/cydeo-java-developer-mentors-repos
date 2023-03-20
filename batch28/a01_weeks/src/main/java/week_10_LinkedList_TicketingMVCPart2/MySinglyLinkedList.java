@@ -23,61 +23,9 @@ class MySinglyLinkedList {
         size++;
     }
 
-    public int getKthItemFromLast(int k) {
-        // create two pointers
-        Node<Integer> ptr1 = head;
-        Node<Integer> ptr2 = head;
-        // move ptr2 k-1 times
-
-        for (int i = 0; i < k - 1; i++) {
-            ptr2 = ptr2.next;
-        }
-        // move both pointers until ptr2 hits the last element
-        while (ptr2.next != null) {
-            ptr1 = ptr1.next;
-            ptr2 = ptr2.next;
-        }
-        // ptr1 is on the kth element from the last
-        return ptr1.value;
-    }
-
-    public void removeKthItemFromLast(int k) {
-        // create three pointers
-        Node ptr1 = head;
-        Node ptr2 = head;
-        Node prev = null;
-        // move ptr2 k-1 times
-
-        for (int i = 0; i < k - 1; i++) {
-            ptr2 = ptr2.next;
-        }
-        // move both pointers until ptr2 hits the last element
-        while (ptr2.next != null) {
-            prev = ptr1;
-            ptr1 = ptr1.next;
-            ptr2 = ptr2.next;
-        }
-        // ptr1 is on the kth element from the last
-        // Do delete operation
-        if (ptr1 == head) {
-            head = ptr1.next;
-            ptr1.next = null;
-            size--;
-        } else if (ptr1 == tail) {
-            tail = prev;
-            prev.next = null;
-            size--;
-        } else {
-            prev.next = ptr1.next;
-            ptr1.next = null;
-            size--;
-
-        }
-    }
-
     void add(int data) {
         // create a new node object from data
-        Node node = new Node(data);
+        Node<Integer> node = new Node<>(data);
 
         if (isEmpty()) { // if the list is empty
             head = tail = node;
@@ -141,7 +89,7 @@ class MySinglyLinkedList {
     }
 
     void printNodes() {
-        Node current = head;
+        Node<Integer> current = head;
         while (current != null) {
             if (current.next == null)
                 System.out.println(current.value + "=> null");
@@ -154,8 +102,8 @@ class MySinglyLinkedList {
 
 
     public void removeKthFromLast2(int k) {
-        Node ptr1 = head;
-        Node ptr2 = head;
+        Node<Integer> ptr1 = head;
+        Node<Integer> ptr2 = head;
         for (int i = 0; i < k - 1; i++) {
 
             ptr2 = ptr2.next;
