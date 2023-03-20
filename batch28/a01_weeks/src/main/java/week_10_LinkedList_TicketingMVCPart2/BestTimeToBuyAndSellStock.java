@@ -57,6 +57,10 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
         return maxProfit;
     }
 
+
+
+    // other solutions:
+
     // Time Complexity: O (n)
     // Space Complexity: O (1)
     public int withForEachLoop(int[] prices) {

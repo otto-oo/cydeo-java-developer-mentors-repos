@@ -1,7 +1,6 @@
-package week_13_ORMpart2;
+package week_14_ORMpart2;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /*
 leetcode medium

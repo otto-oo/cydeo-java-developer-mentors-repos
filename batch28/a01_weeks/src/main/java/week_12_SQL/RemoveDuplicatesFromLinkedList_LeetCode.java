@@ -1,4 +1,4 @@
-package week_11_SQL;
+package week_12_SQL;
 
 public class RemoveDuplicatesFromLinkedList_LeetCode {
     /**

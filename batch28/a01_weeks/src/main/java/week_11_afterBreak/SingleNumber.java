@@ -1,4 +1,4 @@
-package z_questions;
+package week_11_afterBreak;
 
 import java.util.*;
 
@@ -27,6 +27,8 @@ Constraints:
     1 <= nums.length <= 3 * 104
     -3 * 104 <= nums[i] <= 3 * 104
     Each element in the array appears twice except for one element which appears only once.
+
+    https://leetcode.com/problems/single-number/
      */
 
     public static void main(String[] args) {
